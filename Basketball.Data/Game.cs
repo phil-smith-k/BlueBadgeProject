@@ -32,7 +32,34 @@ namespace Basketball.Data
 
 		public string Location { get; }
 
-		public string Winner { get; }
+		public string Winner
+		{
+			get
+			{
+				if(HomeTeamScore > AwayTeamScore)
+				{
+					return HomeTeam.Name;
+				}
+				else
+				{
+					return AwayTeam.Name;
+				}
+			}
+		}
+		public string Loser
+		{
+			get
+			{
+				if(Winner == HomeTeam.Name)
+				{
+					return AwayTeam.Name;
+				}
+				else
+				{
+					return HomeTeam.Name;
+				}
+			}
+		}
 
 
     }

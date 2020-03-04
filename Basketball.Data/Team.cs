@@ -26,5 +26,5 @@ namespace Basketball.Data
             public virtual ICollection<Player> Roster { get; set; }
         }
 
-    }
+    
 }

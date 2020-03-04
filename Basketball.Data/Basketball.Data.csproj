@@ -87,6 +87,11 @@
     <Compile Include="Conference.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="IdentityModels.cs" />
+    <Compile Include="Migrations\202003042124482_henrymigration.cs" />
+    <Compile Include="Migrations\202003042124482_henrymigration.Designer.cs">
+      <DependentUpon>202003042124482_henrymigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Team.cs" />
@@ -94,6 +99,11 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202003042124482_henrymigration.resx">
+      <DependentUpon>202003042124482_henrymigration.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
