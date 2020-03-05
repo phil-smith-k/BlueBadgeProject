@@ -54,12 +54,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConferenceDetails.cs" />
+    <Compile Include="ConferenceList.cs" />
     <Compile Include="CreateNewConference.cs" />
     <Compile Include="CreateNewGame.cs" />
     <Compile Include="CreateNewPlayer.cs" />
     <Compile Include="CreatNewTeam.cs" />
     <Compile Include="GameDetails.cs" />
+    <Compile Include="GameList.cs" />
+    <Compile Include="PlayerDetails.cs" />
+    <Compile Include="PlayerList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TeamDetails.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

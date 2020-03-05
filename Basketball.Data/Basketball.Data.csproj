@@ -95,6 +95,10 @@
     <Compile Include="Migrations\202003051404262_addedgametable.Designer.cs">
       <DependentUpon>202003051404262_addedgametable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202003051619481_conference.cs" />
+    <Compile Include="Migrations\202003051619481_conference.Designer.cs">
+      <DependentUpon>202003051619481_conference.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -110,6 +114,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202003051404262_addedgametable.resx">
       <DependentUpon>202003051404262_addedgametable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003051619481_conference.resx">
+      <DependentUpon>202003051619481_conference.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

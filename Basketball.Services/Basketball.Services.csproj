@@ -54,11 +54,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConferenceService.cs" />
+    <Compile Include="PlayerService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Basketball.Data\Basketball.Data.csproj">
+      <Project>{142D4D4E-9301-409B-8242-AA1793729850}</Project>
+      <Name>Basketball.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Basketball.Models\Basketball.Models.csproj">
+      <Project>{C5FCC291-C1EB-488E-91ED-52B73405E532}</Project>
+      <Name>Basketball.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
