@@ -55,14 +55,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConferenceDetails.cs" />
+    <Compile Include="ConferenceEdit.cs" />
     <Compile Include="ConferenceList.cs" />
     <Compile Include="CreateNewConference.cs" />
     <Compile Include="CreateNewGame.cs" />
     <Compile Include="CreateNewPlayer.cs" />
     <Compile Include="CreateNewTeam.cs" />
     <Compile Include="GameDetails.cs" />
+    <Compile Include="GameEdit.cs" />
     <Compile Include="GameList.cs" />
     <Compile Include="PlayerDetails.cs" />
+    <Compile Include="PlayerEdit.cs" />
     <Compile Include="PlayerList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TeamDetails.cs" />
