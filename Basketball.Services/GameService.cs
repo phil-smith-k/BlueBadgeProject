@@ -65,5 +65,31 @@ namespace Basketball.Services
                 return query.ToArray();
             }
         }
+        public bool UpdateGame(GameEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx.Games.Single(g => g.GameId == model.GameId);
+
+                entity.HomeTeamId = model.HomeTeamId;
+                entity.AwayTeamId = model.AwayTeamId;
+                entity.Date = model.Date;
+                entity.HomeTeamScore = model.HomeTeamScore;
+                entity.AwayTeamScore = model.AwayTeamScore;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+        public bool DeleteGame(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx.Games.Single(g => g.GameId == id);
+
+                ctx.Games.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }
