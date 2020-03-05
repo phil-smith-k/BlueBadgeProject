@@ -52,6 +52,28 @@ namespace Basketball.API.Controllers
                 return Ok(game);
         }
         // Put
+        public IHttpActionResult Put(GameEdit model)
+        {
+            var service = CreateGameService();
+            if (model == null)
+                return BadRequest();
+             else
+            {
+                if (!service.UpdateGame(model))
+                    return InternalServerError();
+                else
+                    return Ok();
+            }
+        }
         // Delete
+        public IHttpActionResult Delete(int id)
+        {
+            var service = CreateGameService();
+
+            if (!service.DeleteGame(id))
+                return InternalServerError();
+            else
+                return Ok();
+        }
     }
 }
