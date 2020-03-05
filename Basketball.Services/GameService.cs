@@ -40,7 +40,7 @@ namespace Basketball.Services
                     HomeTeamName = entity.HomeTeam.Name,
                     AwayTeamName = entity.AwayTeam.Name,
                     Location = entity.Location,
-                    Date = entity.Date,
+                    Date = entity.Date.ToShortDateString(),
                     HomeTeamScore = entity.HomeTeamScore,
                     AwayTeamScore = entity.AwayTeamScore,
                     WinningTeamName = entity.Winner,
@@ -53,16 +53,19 @@ namespace Basketball.Services
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var query = ctx.Games.Select(g =>
+                var query = ctx
+                    .Games.ToList();
+
+                var result = query.Select(g =>
                     new GameList()
                     {
                         GameId = g.GameId,
-                        Date = g.Date,
+                        Date = g.Date.ToShortDateString(),
                         Location = g.Location,
                         HomeTeamName = g.HomeTeam.Name,
                         AwayTeamName = g.AwayTeam.Name
                     });
-                return query.ToArray();
+                return result.ToArray();
             }
         }
         public bool UpdateGame(GameEdit model)

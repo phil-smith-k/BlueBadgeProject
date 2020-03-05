@@ -31,8 +31,9 @@ namespace Basketball.Services
             {
                 var query =
                     ctx
-                        .Players
-                        .Select(
+                        .Players.ToList();
+
+                        var result = query.Select(
                             e =>
                                 new PlayerList
                                 {
@@ -41,7 +42,7 @@ namespace Basketball.Services
                                     TeamName = e.Team.Name
                                 }
                         );
-                return query.ToArray();
+                return result.ToArray();
             }
         }
         public PlayerDetails GetPlayerById(int id)
