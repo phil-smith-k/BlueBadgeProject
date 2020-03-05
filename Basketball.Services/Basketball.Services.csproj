@@ -55,11 +55,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConferenceService.cs" />
+    <Compile Include="GameService.cs" />
     <Compile Include="PlayerService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TeamService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="bin\Debug\Basketball.Data.dll.config" />
+    <None Include="bin\Debug\Basketball.Models.dll.config" />
+    <None Include="bin\Debug\Basketball.Services.dll.config" />
+    <None Include="obj\Debug\Basketball.Services.csproj.CopyComplete" />
+    <None Include="obj\Debug\Basketball.Services.csprojAssemblyReference.cache" />
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -71,6 +79,28 @@
       <Project>{C5FCC291-C1EB-488E-91ED-52B73405E532}</Project>
       <Name>Basketball.Models</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\Basketball.Data.dll" />
+    <Content Include="bin\Debug\Basketball.Data.pdb" />
+    <Content Include="bin\Debug\Basketball.Models.dll" />
+    <Content Include="bin\Debug\Basketball.Models.pdb" />
+    <Content Include="bin\Debug\Basketball.Services.dll" />
+    <Content Include="bin\Debug\Basketball.Services.pdb" />
+    <Content Include="bin\Debug\EntityFramework.dll" />
+    <Content Include="bin\Debug\EntityFramework.SqlServer.dll" />
+    <Content Include="bin\Debug\EntityFramework.SqlServer.xml" />
+    <Content Include="bin\Debug\EntityFramework.xml" />
+    <Content Include="bin\Debug\Microsoft.AspNet.Identity.Core.dll" />
+    <Content Include="bin\Debug\Microsoft.AspNet.Identity.Core.xml" />
+    <Content Include="bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll" />
+    <Content Include="bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml" />
+    <Content Include="obj\Debug\Basketball.Services.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\Basketball.Services.dll" />
+    <Content Include="obj\Debug\Basketball.Services.pdb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="obj\Debug\TempPE\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

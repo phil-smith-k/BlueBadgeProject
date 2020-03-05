@@ -59,7 +59,7 @@
     <Compile Include="CreateNewConference.cs" />
     <Compile Include="CreateNewGame.cs" />
     <Compile Include="CreateNewPlayer.cs" />
-    <Compile Include="CreatNewTeam.cs" />
+    <Compile Include="CreateNewTeam.cs" />
     <Compile Include="GameDetails.cs" />
     <Compile Include="GameList.cs" />
     <Compile Include="PlayerDetails.cs" />
