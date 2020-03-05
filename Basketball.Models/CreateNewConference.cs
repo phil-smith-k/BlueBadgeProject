@@ -5,15 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Basketball.Data
+namespace Basketball.Models
 {
-	public class Conference
-	{
-		[Key]
-		public int ConferenceId { get; set; }
-
-		[Required]
-		public string Name { get; set; }
-	}
-
+    public class CreateNewConference
+    {
+        [Required]
+        public string Name { get; set; }
+    }
 }
