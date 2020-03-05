@@ -8,6 +8,7 @@ namespace Basketball.Models
 {
     public class ConferenceDetails
     {
+        public int ConferenceId { get; set; }
         public string ConferenceName { get; set; }
     }
 }

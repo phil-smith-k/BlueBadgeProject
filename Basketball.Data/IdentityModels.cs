@@ -36,6 +36,7 @@ namespace Basketball.Data
         public DbSet<Player> Players { get; set; }
         public DbSet<Game> Games { get; set; }
         public DbSet<Team> Teams { get; set; }
+        public DbSet<Conference> Conferences { get; set; }
         
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
