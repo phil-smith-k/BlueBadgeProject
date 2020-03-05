@@ -57,33 +57,32 @@ namespace Basketball.Services
                     };
             }
         }
-        /*public bool UpdateNote(NoteEdit model)
+        public bool UpdateConference(ConferenceEdit model)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
-                        .Players
-                        .Single(e => e.PlayerId == model.NoteId);
-                entity.Title = model.Title;
-                entity.Content = model.Content;
+                        .Conferences
+                        .Single(e => e.ConferenceId == model.ConferenceId);
+                entity.Name = model.Name;
 
                 return ctx.SaveChanges() == 1;
             }
         }
-        public bool DeletePlayer(int playerId)
+        public bool DeleteConference(int conferenceId)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
-                        .Notes
-                        .Single(e => e.NoteId == noteId && e.OwnerId == _userId);
+                        .Conferences
+                        .Single(e => e.ConferenceId == conferenceId);
 
-                ctx.Notes.Remove(entity);
+                ctx.Conferences.Remove(entity);
 
                 return ctx.SaveChanges() == 1;
             }
-        }*/
+        }
     }
 }

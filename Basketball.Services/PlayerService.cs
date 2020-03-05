@@ -61,16 +61,17 @@ namespace Basketball.Services
                     };
             }
         }
-        /*public bool UpdateNote(NoteEdit model)
+        public bool UpdatePlayer(PlayerEdit model)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
                         .Players
-                        .Single(e => e.PlayerId == model.NoteId);
-                entity.Title = model.Title;
-                entity.Content = model.Content;
+                        .Single(e => e.PlayerId == model.PlayerId);
+                entity.FirstName = model.FirstName;
+                entity.LastName = model.LastName;
+                entity.Team.Name = model.TeamName;
 
                 return ctx.SaveChanges() == 1;
             }
@@ -81,14 +82,14 @@ namespace Basketball.Services
             {
                 var entity =
                     ctx
-                        .Notes
-                        .Single(e => e.NoteId == noteId && e.OwnerId == _userId);
+                        .Players
+                        .Single(e => e.PlayerId == playerId);
 
-                ctx.Notes.Remove(entity);
+                ctx.Players.Remove(entity);
 
                 return ctx.SaveChanges() == 1;
             }
-        }*/
+        }
     }
 }
 

@@ -40,12 +40,12 @@ namespace Basketball.API.Controllers
             var player = playerService.GetPlayerById(id);
             return Ok(player);
         }
-        /*public IHttpActionResult Put(PlayerEdit player)
+        public IHttpActionResult Put(PlayerEdit player)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            var service = CreateNoteService();
+            var service = CreatePlayerService();
 
             if (!service.UpdatePlayer(player))
                 return InternalServerError();
@@ -60,6 +60,6 @@ namespace Basketball.API.Controllers
                 return InternalServerError();
 
             return Ok();
-        }*/
+        }
     }
 }
