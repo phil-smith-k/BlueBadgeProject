@@ -18,6 +18,7 @@ namespace Basketball.Data
 
 		[Required]
 		public string LastName { get; set; }
+		public string FullName { get => FirstName + " " + LastName; }
 
 		[ForeignKey(nameof(Team))]
 		public int TeamId { get; set; }
