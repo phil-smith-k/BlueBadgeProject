@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Basketball.Models
 {
-    public class CreatNewTeam
+    public class CreateNewTeam
     {
         [Required]
         public string Location { get; set; }
