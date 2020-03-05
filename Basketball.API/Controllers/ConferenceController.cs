@@ -40,7 +40,7 @@ namespace Basketball.API.Controllers
             var conference = conferenceService.GetConferenceById(id);
             return Ok(conference);
         }
-        /*public IHttpActionResult Put(ConferenceEdit conference)
+        public IHttpActionResult Put(ConferenceEdit conference)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
@@ -60,6 +60,6 @@ namespace Basketball.API.Controllers
                 return InternalServerError();
 
             return Ok();
-        }*/
+        }
     }
 }
