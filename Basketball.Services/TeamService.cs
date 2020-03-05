@@ -64,5 +64,35 @@ namespace Basketball.Services
                 return query.ToArray();
             }
         }
+        public bool UpdateTeam(TeamEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Teams
+                        .Single(e => e.TeamId == model.TeamId);
+                entity.Location = model.Location;
+                entity.Name = model.Name;
+                entity.ConferenceId = model.ConferenceId;
+                entity.TeamId = model.TeamId;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+        public bool DeleteTeam(int TeamId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Teams
+                        .Single(e => e.TeamId == TeamId);
+
+                ctx.Teams.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }
