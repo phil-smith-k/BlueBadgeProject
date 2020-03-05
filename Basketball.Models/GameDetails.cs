@@ -13,7 +13,7 @@ namespace Basketball.Models
         public string HomeTeamName { get; set; }
         public string AwayTeamName { get; set; }
         public string Location { get; set; }
-        public DateTime Date { get; set; }
+        public string Date { get; set; }
         public int HomeTeamScore { get; set; }
         public int AwayTeamScore { get; set; }
         public string WinningTeamName { get; set; }

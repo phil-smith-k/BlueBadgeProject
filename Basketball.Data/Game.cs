@@ -30,7 +30,7 @@ namespace Basketball.Data
 		[Required]
 		public int AwayTeamScore { get; set; }
 
-		public string Location { get; }
+		public string Location { get => HomeTeam.Location; }
 
 		public string Winner
 		{
