@@ -54,12 +54,46 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CreateNewConference.cs" />
     <Compile Include="CreateNewGame.cs" />
+    <Compile Include="CreateNewPlayer.cs" />
+    <Compile Include="CreatNewTeam.cs" />
+    <Compile Include="GameDetails.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="bin\Debug\Basketball.Models.dll.config" />
+    <None Include="obj\Debug\Basketball.Models.csproj.CopyComplete" />
+    <None Include="obj\Debug\Basketball.Models.csprojAssemblyReference.cache" />
+    <None Include="obj\Debug\build.force" />
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\Basketball.Models.dll" />
+    <Content Include="bin\Debug\Basketball.Models.pdb" />
+    <Content Include="bin\Debug\EntityFramework.dll" />
+    <Content Include="bin\Debug\EntityFramework.SqlServer.dll" />
+    <Content Include="bin\Debug\EntityFramework.SqlServer.xml" />
+    <Content Include="bin\Debug\EntityFramework.xml" />
+    <Content Include="bin\Debug\Microsoft.AspNet.Identity.Core.dll" />
+    <Content Include="bin\Debug\Microsoft.AspNet.Identity.Core.xml" />
+    <Content Include="bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll" />
+    <Content Include="bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml" />
+    <Content Include="obj\Debug\Basketball.Models.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\Basketball.Models.dll" />
+    <Content Include="obj\Debug\Basketball.Models.pdb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Release\" />
+    <Folder Include="obj\Debug\TempPE\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Basketball.Data\Basketball.Data.csproj">
+      <Project>{142D4D4E-9301-409B-8242-AA1793729850}</Project>
+      <Name>Basketball.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
