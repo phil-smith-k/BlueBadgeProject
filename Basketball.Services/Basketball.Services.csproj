@@ -62,6 +62,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="bin\Debug\Basketball.Data.dll.config" />
+    <None Include="bin\Debug\Basketball.Models.dll.config" />
     <None Include="bin\Debug\Basketball.Services.dll.config" />
     <None Include="obj\Debug\Basketball.Services.csproj.CopyComplete" />
     <None Include="obj\Debug\Basketball.Services.csprojAssemblyReference.cache" />
@@ -80,6 +82,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bin\Debug\Basketball.Data.dll" />
+    <Content Include="bin\Debug\Basketball.Data.pdb" />
+    <Content Include="bin\Debug\Basketball.Models.dll" />
+    <Content Include="bin\Debug\Basketball.Models.pdb" />
     <Content Include="bin\Debug\Basketball.Services.dll" />
     <Content Include="bin\Debug\Basketball.Services.pdb" />
     <Content Include="bin\Debug\EntityFramework.dll" />
