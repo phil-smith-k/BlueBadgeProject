@@ -38,7 +38,7 @@ namespace Basketball.API.Controllers
             return Ok();
         }
 
-        /*public IHttpActionResult Put(TeamEdit note)
+        public IHttpActionResult Put(TeamEdit note)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
@@ -49,7 +49,7 @@ namespace Basketball.API.Controllers
                 return InternalServerError();
 
             return Ok();
-        } */
+        }
 
         private TeamService CreateTeamService()
         {
@@ -57,8 +57,8 @@ namespace Basketball.API.Controllers
             return noteService;
         }
 
-        /*
-         * public IHttpActionResult Delete(int id)
+
+        public IHttpActionResult Delete(int id)
         {
             var service = CreateTeamService();
 
@@ -66,6 +66,6 @@ namespace Basketball.API.Controllers
                 return InternalServerError();
 
             return Ok();
-        }*/
+        }
     }
 }
