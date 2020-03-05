@@ -67,6 +67,7 @@
     <None Include="bin\Debug\Basketball.Services.dll.config" />
     <None Include="obj\Debug\Basketball.Services.csproj.CopyComplete" />
     <None Include="obj\Debug\Basketball.Services.csprojAssemblyReference.cache" />
+    <None Include="obj\Debug\build.force" />
     <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <None Include="packages.config" />
   </ItemGroup>
@@ -100,6 +101,7 @@
     <Content Include="obj\Debug\Basketball.Services.pdb" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="bin\Release\" />
     <Folder Include="obj\Debug\TempPE\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
