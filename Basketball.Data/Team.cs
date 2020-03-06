@@ -31,6 +31,14 @@ namespace Basketball.Data
         [InverseProperty("AwayTeam")]
         public virtual ICollection<Game> AwayGameLog { get; set; }
 
+        public virtual ICollection<Game> AllGames
+        {
+            get
+            {
+                return HomeGameLog.Concat<Game>(AwayGameLog).ToList();
+            }
+        }
+
 
     }
 }
