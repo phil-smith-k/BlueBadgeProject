@@ -49,11 +49,13 @@ namespace Basketball.Services
                     ctx
                         .Conferences
                         .Single(e => e.ConferenceId == id);
+                var allTeams = entity.AllTeams.ToList();
                 return
                     new ConferenceDetails
                     {
                         ConferenceId = entity.ConferenceId,
                         ConferenceName = entity.Name,
+                        Teams = allTeams.Select(t => new TeamListConference { Name = t.Name, Location = t.Location}).ToList()
                     };
             }
         }

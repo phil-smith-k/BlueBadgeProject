@@ -71,6 +71,7 @@
     <Compile Include="TeamDetails.cs" />
     <Compile Include="TeamEdit.cs" />
     <Compile Include="TeamList.cs" />
+    <Compile Include="TeamListConference.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

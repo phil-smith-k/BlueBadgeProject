@@ -111,6 +111,10 @@
     <Compile Include="Migrations\202003061533282_allgames.Designer.cs">
       <DependentUpon>202003061533282_allgames.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202003061625185_addedteamstoconference.cs" />
+    <Compile Include="Migrations\202003061625185_addedteamstoconference.Designer.cs">
+      <DependentUpon>202003061625185_addedteamstoconference.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -138,6 +142,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202003061533282_allgames.resx">
       <DependentUpon>202003061533282_allgames.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003061625185_addedteamstoconference.resx">
+      <DependentUpon>202003061625185_addedteamstoconference.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
