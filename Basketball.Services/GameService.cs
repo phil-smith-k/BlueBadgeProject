@@ -63,7 +63,10 @@ namespace Basketball.Services
                         Date = g.Date.ToShortDateString(),
                         Location = g.Location,
                         HomeTeamName = g.HomeTeam.Name,
-                        AwayTeamName = g.AwayTeam.Name
+                        AwayTeamName = g.AwayTeam.Name,
+                        HomeTeamScore = g.HomeTeamScore,
+                        AwayTeamScore = g.AwayTeamScore,
+                        Winner = g.Winner
                     });
                 return result.ToArray();
             }

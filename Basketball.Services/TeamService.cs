@@ -18,12 +18,19 @@ namespace Basketball.Services
                     ctx
                         .Teams
                         .Single(e => e.TeamId == id);
+                var roster = entity.Roster.ToList();
+                var homeGameLog = entity.HomeGameLog.ToList();
+                var awayGameLog = entity.AwayGameLog.ToList();
                 return
                     new TeamDetails
                     {
                         Location = entity.Location,
                         Name = entity.Name,
-                        ConferenceId = entity.ConferenceId
+                        ConferenceId = entity.ConferenceId,
+                        Players = roster.Select(c => new PlayerList { FullName = c.FullName, PlayerId = c.PlayerId, TeamName = c.Team.Name}).ToList(),
+                        HomeGames = homeGameLog.Select(g => new GameList { GameId = g.GameId, Date = g.Date.ToShortDateString(), Location = g.Location, HomeTeamName = g.HomeTeam.Name, AwayTeamName = g.AwayTeam.Name, HomeTeamScore = g.HomeTeamScore, AwayTeamScore = g.AwayTeamScore, Winner = g.Winner}).ToList(),
+                        AwayGames = awayGameLog.Select(g => new GameList { GameId = g.GameId, Date = g.Date.ToShortDateString(), Location = g.Location, HomeTeamName = g.HomeTeam.Name, AwayTeamName = g.AwayTeam.Name, HomeTeamScore = g.HomeTeamScore, AwayTeamScore = g.AwayTeamScore, Winner = g.Winner }).ToList()
+
                     };
             }
         }
