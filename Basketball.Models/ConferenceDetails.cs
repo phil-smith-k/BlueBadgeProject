@@ -10,5 +10,6 @@ namespace Basketball.Models
     {
         public int ConferenceId { get; set; }
         public string ConferenceName { get; set; }
+        public List<TeamList> Teams { get; set; }
     }
 }
