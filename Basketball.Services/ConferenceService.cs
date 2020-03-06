@@ -55,7 +55,7 @@ namespace Basketball.Services
                     {
                         ConferenceId = entity.ConferenceId,
                         ConferenceName = entity.Name,
-                        Teams = allTeams.Select(t => new TeamList { Name = t.Name, Location = t.Location, Conference = t.Conference.Name}).ToList(),
+                        Teams = allTeams.Select(t => new TeamListConference { Name = t.Name, Location = t.Location}).ToList()
                     };
             }
         }
