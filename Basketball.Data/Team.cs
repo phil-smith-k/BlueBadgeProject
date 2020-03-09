@@ -24,6 +24,7 @@ namespace Basketball.Data
         public virtual Conference Conference { get; set; }
 
         public virtual ICollection<Player> Roster { get; set; }
+        public virtual ICollection<PlayerStats> PlayerStats { get; set; }
 
         [InverseProperty("HomeTeam")]
         public virtual ICollection<Game> HomeGameLog { get; set; }

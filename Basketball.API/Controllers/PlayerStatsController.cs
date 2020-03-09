@@ -15,7 +15,7 @@ namespace Basketball.API.Controllers
         public IHttpActionResult Get()
         {
             PlayerStatsService playerStats = CreatePlayerStatsService();
-            var players = playerStats.GetPlayersStats();
+            var players = playerStats.GetPlayerStats();
             return Ok(players);
         }
         public IHttpActionResult Post(CreateNewPlayerStats createNewPlayerStats)
@@ -32,23 +32,23 @@ namespace Basketball.API.Controllers
         }
         private PlayerStatsService CreatePlayerStatsService()
         {
-            var playerService = new PlayerStatService();
+            var playerService = new PlayerStatsService();
             return playerService;
         }
         public IHttpActionResult Get(int id)
         {
             PlayerStatsService playerService = CreatePlayerStatsService();
-            var player = playerService.GetPlayerById(id);
+            var player = playerService.GetPlayerStatsById(id);
             return Ok(player);
         }
-        public IHttpActionResult Put(PlayerEdit player)
+        public IHttpActionResult Put(PlayerStatsEdit player)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
             var service = CreatePlayerStatsService();
 
-            if (!service.UpdatePlayer(player))
+            if (!service.UpdatePlayerStats(player))
                 return InternalServerError();
 
             return Ok();
@@ -57,9 +57,10 @@ namespace Basketball.API.Controllers
         {
             var service = CreatePlayerStatsService();
 
-            if (!service.DeletePlayer(id))
+            if (!service.DeletePlayerStats(id))
                 return InternalServerError();
 
             return Ok();
         }
+    }
 }

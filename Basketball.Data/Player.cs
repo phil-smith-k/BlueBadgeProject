@@ -44,8 +44,15 @@ namespace Basketball.Data
 				{
 					totalPoints += playerStats.Points;
 				}
-				int averagePoints = totalPoints / GamesPlayed;
-				return Convert.ToDecimal(averagePoints);
+				if (GamesPlayed != 0)
+				{
+					int averagePoints = totalPoints / GamesPlayed;
+					return Convert.ToDecimal(averagePoints);
+				}
+				else
+				{
+					return 0;
+				}
 			}
 		}
 		public decimal AverageRebounds
@@ -57,8 +64,15 @@ namespace Basketball.Data
 				{
 					totalRebounds += playerStats.Rebounds;
 				}
-				int averageRebounds = totalRebounds / GamesPlayed;
-				return Convert.ToDecimal(averageRebounds);
+				if(GamesPlayed != 0)
+				{
+					int averageRebounds = totalRebounds / GamesPlayed;
+					return Convert.ToDecimal(averageRebounds);
+				}
+				else
+				{
+					return 0;
+				}
 			}
 		}
 		public decimal AverageAssists
@@ -70,11 +84,18 @@ namespace Basketball.Data
 				{
 					totalAssists += playerStats.Assists;
 				}
-				int averageAssists = totalAssists / GamesPlayed;
-				return Convert.ToDecimal(averageAssists);
+				if(GamesPlayed != 0)
+				{
+					int averageAssists = totalAssists / GamesPlayed;
+					return Convert.ToDecimal(averageAssists);
+				}
+				else
+				{
+					return 0;
+				}
 			}
 		}
-		public ICollection<PlayerStats> PlayerStats { get; set; }
+		public ICollection<PlayerStats> PlayerStats { get; set; } = new HashSet<PlayerStats>();
 
 	}
 }
