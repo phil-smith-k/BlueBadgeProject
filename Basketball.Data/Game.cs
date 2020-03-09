@@ -60,6 +60,7 @@ namespace Basketball.Data
 				}
 			}
 		}
+		public ICollection<PlayerStats> PlayerStats { get; set; }
 
 
     }
