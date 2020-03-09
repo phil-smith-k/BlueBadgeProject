@@ -23,6 +23,7 @@ namespace Basketball.Data
 		[ForeignKey(nameof(Team))]
 		public int TeamId { get; set; }
 		public virtual Team Team { get; set; }
+		public ICollection<PlayerStats> PlayerStats { get; set; }
 
 	}
 }
