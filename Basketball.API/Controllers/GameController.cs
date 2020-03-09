@@ -51,8 +51,9 @@ namespace Basketball.API.Controllers
             else
                 return Ok(game);
         }
-        // Put
+
         public IHttpActionResult Put(GameEdit model)
+
         {
             var service = CreateGameService();
             if (model == null)
@@ -65,7 +66,7 @@ namespace Basketball.API.Controllers
                     return Ok();
             }
         }
-        // Delete
+
         public IHttpActionResult Delete(int id)
         {
             var service = CreateGameService();
