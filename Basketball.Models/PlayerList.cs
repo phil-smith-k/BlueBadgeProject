@@ -11,5 +11,6 @@ namespace Basketball.Models
         public int PlayerId { get; set; }
         public string FullName { get; set; }
         public string TeamName { get; set; }
+        public decimal AveragePoints { get; set; }
     }
 }

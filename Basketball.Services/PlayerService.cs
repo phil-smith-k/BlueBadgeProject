@@ -59,6 +59,10 @@ namespace Basketball.Services
                         PlayerId = entity.PlayerId,
                         FullName = entity.FullName,
                         TeamName = entity.Team.Name,
+                        GamesPlayed = entity.GamesPlayed,
+                        AveragePoints = entity.AveragePoints,
+                        AverageRebounds = entity.AverageRebounds,
+                        AverageAssists = entity.AverageAssists
                     };
             }
         }

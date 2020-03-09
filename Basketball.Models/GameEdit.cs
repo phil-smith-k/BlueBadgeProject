@@ -21,10 +21,10 @@ namespace Basketball.Models
         [Required]
         public DateTime Date { get; set; }
 
-        [Required]
-        public int HomeTeamScore { get; set; }
+        // [Required]
+        // public int HomeTeamScore { get; set; }
 
-        [Required]
-        public int AwayTeamScore { get; set; }
+        // [Required]
+        // public int AwayTeamScore { get; set; }
     }
 }
