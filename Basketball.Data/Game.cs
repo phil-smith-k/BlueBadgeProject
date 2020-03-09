@@ -32,7 +32,7 @@ namespace Basketball.Data
 				int homePoints = 0;
 				foreach(PlayerStats playerStats in PlayerStats)
 				{
-					if(playerStats.Game.HomeTeam.Name == HomeTeam.Name)
+					if(playerStats.Player.Team.Name == HomeTeam.Name)
 					{
 						homePoints += playerStats.Points;						
 					}
@@ -49,7 +49,7 @@ namespace Basketball.Data
 				int awayPoints = 0;
 				foreach(PlayerStats playerStats in PlayerStats)
 				{
-					if(playerStats.Game.AwayTeam.Name == AwayTeam.Name)
+					if(playerStats.Player.Team.Name == AwayTeam.Name)
 					{
 						awayPoints += playerStats.Points;
 					}
@@ -88,7 +88,7 @@ namespace Basketball.Data
 				}
 			}
 		}
-		public ICollection<PlayerStats> PlayerStats { get; set; }
+		public virtual ICollection<PlayerStats> PlayerStats { get; set; }
 
 
     }

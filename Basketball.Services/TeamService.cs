@@ -17,11 +17,17 @@ namespace Basketball.Services
                 var entity =
                     ctx
                         .Teams
+                        .Include("Roster")
                         .Single(e => e.TeamId == id);
                 var roster = entity.Roster.ToList();
                 var homeGameLog = entity.HomeGameLog.ToList();
                 var awayGameLog = entity.AwayGameLog.ToList();
-                var allGames = entity.AllGames.OrderByDescending(g => g.Date).ToList(); 
+                var allGames = entity.AllGames.OrderByDescending(g => g.Date).ToList();
+                // var playerStats = entity.PlayerStats.ToList();
+                foreach(Player player in entity.Roster)
+                {
+                    player.PlayerStats.ToList();
+                }
                 return
                     new TeamDetails
                     {

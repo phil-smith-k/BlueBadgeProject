@@ -131,6 +131,18 @@
     <Compile Include="Migrations\202003091534575_playerstats3.Designer.cs">
       <DependentUpon>202003091534575_playerstats3.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202003091753230_qwerty.cs" />
+    <Compile Include="Migrations\202003091753230_qwerty.Designer.cs">
+      <DependentUpon>202003091753230_qwerty.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003091759532_virtualIcollection.cs" />
+    <Compile Include="Migrations\202003091759532_virtualIcollection.Designer.cs">
+      <DependentUpon>202003091759532_virtualIcollection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003091827492_newLoop.cs" />
+    <Compile Include="Migrations\202003091827492_newLoop.Designer.cs">
+      <DependentUpon>202003091827492_newLoop.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="PlayerStats.cs" />
@@ -174,6 +186,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202003091534575_playerstats3.resx">
       <DependentUpon>202003091534575_playerstats3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003091753230_qwerty.resx">
+      <DependentUpon>202003091753230_qwerty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003091759532_virtualIcollection.resx">
+      <DependentUpon>202003091759532_virtualIcollection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003091827492_newLoop.resx">
+      <DependentUpon>202003091827492_newLoop.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

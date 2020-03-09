@@ -31,7 +31,8 @@ namespace Basketball.Services
             {
                 var query =
                     ctx
-                        .Players.ToList();
+                        .Players.Include("PlayerStats").ToList();
+
 
                         var result = query.Select(
                             e =>
@@ -39,7 +40,8 @@ namespace Basketball.Services
                                 {
                                     PlayerId = e.PlayerId,
                                     FullName = e.FullName,
-                                    TeamName = e.Team.Name
+                                    TeamName = e.Team.Name,
+                                    AveragePoints = e.AveragePoints
                                 }
                         );
                 return result.ToArray();
@@ -52,6 +54,7 @@ namespace Basketball.Services
                 var entity =
                     ctx
                         .Players
+                        .Include("PlayerStats")
                         .Single(e => e.PlayerId == id);
                 return
                     new PlayerDetails

@@ -35,7 +35,7 @@ namespace Basketball.Services
                 var query = ctx.PlayerStats.ToList().Select(ps => new PlayerStatsList
                 {
                     PlayerStatsId = ps.PlayerStatsId,
-                    Date = ps.Game.Date,
+                    Date = ps.Game.Date.ToShortDateString(),
                     FullName = ps.Player.FullName,
                     GameId = ps.GameId
                 });
