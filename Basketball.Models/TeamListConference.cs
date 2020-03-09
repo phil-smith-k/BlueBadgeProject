@@ -10,5 +10,6 @@ namespace Basketball.Models
     {
         public string Location { get; set; }
         public string Name { get; set; }
+        public string Record { get; set; }
     }
 }

@@ -30,6 +30,43 @@ namespace Basketball.Data
 
         [InverseProperty("AwayTeam")]
         public virtual ICollection<Game> AwayGameLog { get; set; }
+        public string Record
+        {
+            get
+            {
+                return Wins + "-" + Losses;
+            }
+        }
+        public int Wins
+        {
+            get
+            {
+                int winCount = 0;
+                foreach(Game game in AllGames)
+                {
+                    if(game.Winner == Name)
+                    {
+                        winCount += 1;
+                    }
+                }
+                return winCount;
+            }
+        }
+        public int Losses
+        {
+            get
+            {
+                int lossCount = 0;
+                foreach(Game game in AllGames)
+                {
+                    if(game.Loser == Name)
+                    {
+                        lossCount += 1;
+                    }
+                }
+                return lossCount;
+            }
+        }
 
         public virtual ICollection<Game> AllGames
         {

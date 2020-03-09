@@ -21,14 +21,15 @@ namespace Basketball.Services
                 var roster = entity.Roster.ToList();
                 var homeGameLog = entity.HomeGameLog.ToList();
                 var awayGameLog = entity.AwayGameLog.ToList();
-                var allGames = entity.AllGames.OrderByDescending(g => g.Date).ToList();
+                var allGames = entity.AllGames.OrderByDescending(g => g.Date).ToList(); 
                 return
                     new TeamDetails
                     {
                         Location = entity.Location,
                         Name = entity.Name,
                         ConferenceName = entity.Conference.Name,
-                        Players = roster.Select(c => new PlayerList { FullName = c.FullName, PlayerId = c.PlayerId, TeamName = c.Team.Name}).ToList(),
+                        Record = entity.Record,
+                        Players = roster.Select(c => new PlayerList { FullName = c.FullName, PlayerId = c.PlayerId, TeamName = c.Team.Name}).ToList(), 
                         AllGames = allGames.Select(g => new GameList { GameId = g.GameId, Date = g.Date.ToShortDateString(), Location = g.Location, HomeTeamName = g.HomeTeam.Name, AwayTeamName = g.AwayTeam.Name, HomeTeamScore = g.HomeTeamScore, AwayTeamScore = g.AwayTeamScore, Winner = g.Winner }).ToList()
                         /*HomeGames = homeGameLog.Select(g => new GameList { GameId = g.GameId, Date = g.Date.ToShortDateString(), Location = g.Location, HomeTeamName = g.HomeTeam.Name, AwayTeamName = g.AwayTeam.Name, HomeTeamScore = g.HomeTeamScore, AwayTeamScore = g.AwayTeamScore, Winner = g.Winner}).ToList(),
                         AwayGames = awayGameLog.Select(g => new GameList { GameId = g.GameId, Date = g.Date.ToShortDateString(), Location = g.Location, HomeTeamName = g.HomeTeam.Name, AwayTeamName = g.AwayTeam.Name, HomeTeamScore = g.HomeTeamScore, AwayTeamScore = g.AwayTeamScore, Winner = g.Winner }).ToList()*/
@@ -59,13 +60,15 @@ namespace Basketball.Services
             {
                 var query =
                     ctx
-                        .Teams
+                        .Teams.ToList()
+                        .OrderByDescending(g => g.Wins)
                         .Select(T =>
                                 new TeamList
                                 {
                                     Location = T.Location,
                                     Name = T.Name,
-                                    Conference = T.Conference.Name
+                                    Conference = T.Conference.Name,
+                                    Record = T.Record
                                 }
                          );
 
