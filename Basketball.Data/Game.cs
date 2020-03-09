@@ -25,10 +25,38 @@ namespace Basketball.Data
 		public DateTime Date { get; set; }
 
 		[Required]
-		public int HomeTeamScore { get; set; }
+		public int HomeTeamScore
+		{
+			get
+			{
+				int homePoints = 0;
+				foreach(PlayerStats playerStats in PlayerStats)
+				{
+					if(playerStats.Game.HomeTeam.Name == HomeTeam.Name)
+					{
+						homePoints += playerStats.Points;						
+					}
+				}
+				return homePoints;
+			}
+		}
 
 		[Required]
-		public int AwayTeamScore { get; set; }
+		public int AwayTeamScore
+		{
+			get
+			{
+				int awayPoints = 0;
+				foreach(PlayerStats playerStats in PlayerStats)
+				{
+					if(playerStats.Game.AwayTeam.Name == AwayTeam.Name)
+					{
+						awayPoints += playerStats.Points;
+					}
+				}
+				return awayPoints;
+			}
+		}
 
 		public string Location { get => HomeTeam.Location; }
 

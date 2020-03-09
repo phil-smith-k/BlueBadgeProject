@@ -17,8 +17,8 @@ namespace Basketball.Services
                 HomeTeamId = model.HomeTeamId,
                 AwayTeamId = model.AwayTeamId,
                 Date = model.Date,
-                HomeTeamScore = model.HomeTeamScore,
-                AwayTeamScore = model.AwayTeamScore,
+                // HomeTeamScore = model.HomeTeamScore,
+                // AwayTeamScore = model.AwayTeamScore,
             };
 
             using (var ctx = new ApplicationDbContext())
@@ -80,8 +80,8 @@ namespace Basketball.Services
                 entity.HomeTeamId = model.HomeTeamId;
                 entity.AwayTeamId = model.AwayTeamId;
                 entity.Date = model.Date;
-                entity.HomeTeamScore = model.HomeTeamScore;
-                entity.AwayTeamScore = model.AwayTeamScore;
+                // entity.HomeTeamScore = model.HomeTeamScore;
+                // entity.AwayTeamScore = model.AwayTeamScore;
 
                 return ctx.SaveChanges() == 1;
             }
