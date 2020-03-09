@@ -8,5 +8,9 @@ namespace Basketball.Models
 {
     public class PlayerStatsList
     {
+        public int PlayerStatsId { get; set; }
+        public DateTime Date { get; set; }
+        public int GameId { get; set; }
+        public string FullName { get; set; }
     }
 }
