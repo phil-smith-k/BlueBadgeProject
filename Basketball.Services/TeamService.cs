@@ -31,8 +31,6 @@ namespace Basketball.Services
                         Record = entity.Record,
                         Players = roster.Select(c => new PlayerList { FullName = c.FullName, PlayerId = c.PlayerId, TeamName = c.Team.Name}).ToList(), 
                         AllGames = allGames.Select(g => new GameList { GameId = g.GameId, Date = g.Date.ToShortDateString(), Location = g.Location, HomeTeamName = g.HomeTeam.Name, AwayTeamName = g.AwayTeam.Name, HomeTeamScore = g.HomeTeamScore, AwayTeamScore = g.AwayTeamScore, Winner = g.Winner }).ToList()
-                        /*HomeGames = homeGameLog.Select(g => new GameList { GameId = g.GameId, Date = g.Date.ToShortDateString(), Location = g.Location, HomeTeamName = g.HomeTeam.Name, AwayTeamName = g.AwayTeam.Name, HomeTeamScore = g.HomeTeamScore, AwayTeamScore = g.AwayTeamScore, Winner = g.Winner}).ToList(),
-                        AwayGames = awayGameLog.Select(g => new GameList { GameId = g.GameId, Date = g.Date.ToShortDateString(), Location = g.Location, HomeTeamName = g.HomeTeam.Name, AwayTeamName = g.AwayTeam.Name, HomeTeamScore = g.HomeTeamScore, AwayTeamScore = g.AwayTeamScore, Winner = g.Winner }).ToList()*/
                     };
             }
         }
