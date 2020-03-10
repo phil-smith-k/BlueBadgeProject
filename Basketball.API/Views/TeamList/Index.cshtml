@@ -50,11 +50,13 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Record)
                 </td>
+
                 <td>
                     @Html.ActionLink("Edit", "Edit", new { id = item.TeamId }) |
                     @Html.ActionLink("Details", "Details", new { id = item.TeamId }) |
                     @Html.ActionLink("Delete", "Delete", new { id = item.TeamId })
                 </td>
+
             </tr>
         }
 
