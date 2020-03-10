@@ -12,15 +12,15 @@ namespace Basketball.Services
     {
         public bool CreatePlayer(CreateNewPlayer model)
         {
+            using (var ctx = new ApplicationDbContext())
+            {
             var entity =
                 new Player()
                 {
                     FirstName = model.FirstName,
                     LastName = model.LastName,
-                    TeamId = model.TeamId
+                    Team = ctx.Teams.Single(t => t.Name == model.Team)
                 };
-            using (var ctx = new ApplicationDbContext())
-            {
                 ctx.Players.Add(entity);
                 return ctx.SaveChanges() == 1;
             }

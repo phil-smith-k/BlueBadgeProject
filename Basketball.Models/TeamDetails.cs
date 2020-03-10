@@ -9,6 +9,7 @@ namespace Basketball.Models
 {
     public class TeamDetails
     {
+        public int TeamId { get; set; }
         public string Location { get; set; }
         public string Name { get; set; }
         public string ConferenceName { get; set; }

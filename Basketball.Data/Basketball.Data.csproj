@@ -143,6 +143,34 @@
     <Compile Include="Migrations\202003091827492_newLoop.Designer.cs">
       <DependentUpon>202003091827492_newLoop.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202003101316277_delete.cs" />
+    <Compile Include="Migrations\202003101316277_delete.Designer.cs">
+      <DependentUpon>202003101316277_delete.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003101338466_delete4.cs" />
+    <Compile Include="Migrations\202003101338466_delete4.Designer.cs">
+      <DependentUpon>202003101338466_delete4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003101347461_delete5.cs" />
+    <Compile Include="Migrations\202003101347461_delete5.Designer.cs">
+      <DependentUpon>202003101347461_delete5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003101449108_new.cs" />
+    <Compile Include="Migrations\202003101449108_new.Designer.cs">
+      <DependentUpon>202003101449108_new.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003101507174_id.cs" />
+    <Compile Include="Migrations\202003101507174_id.Designer.cs">
+      <DependentUpon>202003101507174_id.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003101509136_j.cs" />
+    <Compile Include="Migrations\202003101509136_j.Designer.cs">
+      <DependentUpon>202003101509136_j.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003101520133_hometeam.cs" />
+    <Compile Include="Migrations\202003101520133_hometeam.Designer.cs">
+      <DependentUpon>202003101520133_hometeam.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="PlayerStats.cs" />
@@ -195,6 +223,27 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202003091827492_newLoop.resx">
       <DependentUpon>202003091827492_newLoop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003101316277_delete.resx">
+      <DependentUpon>202003101316277_delete.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003101338466_delete4.resx">
+      <DependentUpon>202003101338466_delete4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003101347461_delete5.resx">
+      <DependentUpon>202003101347461_delete5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003101449108_new.resx">
+      <DependentUpon>202003101449108_new.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003101507174_id.resx">
+      <DependentUpon>202003101507174_id.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003101509136_j.resx">
+      <DependentUpon>202003101509136_j.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003101520133_hometeam.resx">
+      <DependentUpon>202003101520133_hometeam.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

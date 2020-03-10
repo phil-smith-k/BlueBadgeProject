@@ -12,20 +12,22 @@ namespace Basketball.Services
     {
         public bool CreateGame(CreateNewGame model)
         {
-            var entity = new Game()
-            {
-                HomeTeamId = model.HomeTeamId,
-                AwayTeamId = model.AwayTeamId,
-                Date = model.Date,
-                // HomeTeamScore = model.HomeTeamScore,
-                // AwayTeamScore = model.AwayTeamScore,
-            };
-
             using (var ctx = new ApplicationDbContext())
             {
-                ctx.Games.Add(entity);
-                return ctx.SaveChanges() == 1;
-            }
+                var entity = new Game()
+                {
+                    HomeTeam = ctx.Teams.Single(t => t.Name == model.HomeTeam),
+                    AwayTeam = ctx.Teams.Single(t => t.Name == model.AwayTeam),
+                    Date = model.Date,
+                    // HomeTeamScore = model.HomeTeamScore,
+                    // AwayTeamScore = model.AwayTeamScore,
+
+                };
+                    ctx.Games.Add(entity);
+                    return ctx.SaveChanges() == 1;
+                
+            };
+
         }
         public GameDetails GetGameById(int id)
         {

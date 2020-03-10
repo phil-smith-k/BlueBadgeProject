@@ -14,17 +14,17 @@ namespace Basketball.Data
 		public int GameId { get; set; }
 
 		[ForeignKey(nameof(HomeTeam))]
-		public int HomeTeamId { get; set; }
+		public int? HomeTeamId { get; set; }
 		public virtual Team HomeTeam { get; set; }
 
 		[ForeignKey(nameof(AwayTeam))]
-		public int AwayTeamId { get; set; }
+		public int? AwayTeamId { get; set; }
 		public virtual Team AwayTeam { get; set; }
 
 		[Required]
 		public DateTime Date { get; set; }
 
-		[Required]
+		
 		public int HomeTeamScore
 		{
 			get
@@ -41,7 +41,7 @@ namespace Basketball.Data
 			}
 		}
 
-		[Required]
+		
 		public int AwayTeamScore
 		{
 			get

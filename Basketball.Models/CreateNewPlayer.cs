@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Basketball.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -20,7 +21,7 @@ namespace Basketball.Models
         public string LastName { get; set; }
         public string FullName { get => FirstName + " " + LastName; }
 
-        [Required]
-        public int TeamId { get; set; }
+        
+        public string Team { get; set; }
     }
 }
