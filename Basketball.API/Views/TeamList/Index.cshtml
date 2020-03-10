@@ -15,7 +15,7 @@
 <body>
     <h2>TeamList</h2>
     <p>
-        
+
     </p>
     <table class="table">
         <tr>
@@ -25,7 +25,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.Name)
             </th>
-            <th></th>
+            <th>
+                @Html.DisplayNameFor(model => model.Record)
+            </th>
         </tr>
 
         @foreach (var item in Model)
@@ -37,7 +39,9 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Name)
                 </td>
-            </tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.Record)
+                </tr>
         }
 
     </table>
