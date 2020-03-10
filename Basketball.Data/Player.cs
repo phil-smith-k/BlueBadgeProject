@@ -21,7 +21,7 @@ namespace Basketball.Data
 		public string FullName { get => FirstName + " " + LastName; }
 
 		[ForeignKey(nameof(Team))]
-		public int TeamId { get; set; }
+		public int? TeamId { get; set; }
 		public virtual Team Team { get; set; }
 		public int GamesPlayed
 		{

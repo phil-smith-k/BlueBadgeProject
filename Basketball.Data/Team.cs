@@ -73,7 +73,15 @@ namespace Basketball.Data
         {
             get
             {
-                return HomeGameLog.Concat<Game>(AwayGameLog).ToList();
+                if(AwayGameLog == null || HomeGameLog == null)
+                {
+                    return new List<Game>();
+                }
+                else
+                {
+                    return HomeGameLog.Concat<Game>(AwayGameLog).ToList();
+
+               }
             }
         }
 
