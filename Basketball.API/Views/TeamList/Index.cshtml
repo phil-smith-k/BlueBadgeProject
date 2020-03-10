@@ -15,13 +15,13 @@
 <body>
     <div class="jumbotron">
         <h1 class="display-4">Git "R" Dun League!</h1>
-        <p class="lead">This is our Blue Badge Project.</p>
         <hr class="my-4">
-        <a class="btn btn-primary btn-lg" href="#" role="button">ROSTER</a>
-        <a class="btn btn-primary btn-lg" href="#" role="button">ADD PLAYER</a>
-        <a class="btn btn-primary btn-lg" href="#" role="button">ADD LOCATION</a>
+        <p>2020 SEASON</p>
+        <b class="btn btn-primary btn-lg" href="#" role="button">@Html.ActionLink("ALL TEAMS", "Conference", new { id = 2 }, new { @style = "color: white;" })</b>
+        <b class="btn btn-primary btn-lg" href="#" role="button">@Html.ActionLink("WEST CONFERENCE", "Conference", new { id = 2 }, new { @style = "color: white;" })</b>
+        <b class="btn btn-primary btn-lg" href="#" role="button">@Html.ActionLink("EAST CONFERENCE", "Conference", new { id = 1 }, new { @style = "color: white;" })</b>
     </div>
-    <h2>TeamList</h2>
+    <h2>Teams</h2>
     <p>
         @Html.ActionLink("Create New", "Create")
     </p>
@@ -52,8 +52,8 @@
                 </td>
 
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.TeamId }) |
                     @Html.ActionLink("Details", "Details", new { id = item.TeamId }) |
+                    @Html.ActionLink("Edit", "Edit", new { id = item.TeamId }) |
                     @Html.ActionLink("Delete", "Delete", new { id = item.TeamId })
                 </td>
 
