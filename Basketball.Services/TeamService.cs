@@ -44,16 +44,16 @@ namespace Basketball.Services
 
         public bool CreateNewTeam(CreateNewTeam model)
         {
-            var entity =
-                new Team()
-                {
-                    Location = model.Location,
-                    Name = model.Name,
-                    ConferenceId = model.ConferenceId
-                };
-
             using (var ctx = new ApplicationDbContext())
             {
+                var entity =
+                    new Team()
+                    {
+                        Location = model.Location,
+                        Name = model.Name,
+                        Conference = ctx.Conferences.Single(c => c.Name == model.Conference)
+                    };
+
                 ctx.Teams.Add(entity);
                 return ctx.SaveChanges() == 1;
             }
@@ -91,7 +91,7 @@ namespace Basketball.Services
                         .Single(e => e.TeamId == model.TeamId);
                 entity.Location = model.Location;
                 entity.Name = model.Name;
-                entity.ConferenceId = model.ConferenceId;
+                entity.Conference = ctx.Conferences.Single(c => c.Name == model.Conference);
                 entity.TeamId = model.TeamId;
 
                 return ctx.SaveChanges() == 1;

@@ -13,9 +13,17 @@
     <title></title>
 </head>
 <body>
+    <div class="jumbotron">
+        <h1 class="display-4">Git "R" Dun League!</h1>
+        <p class="lead">This is our Blue Badge Project.</p>
+        <hr class="my-4">
+        <a class="btn btn-primary btn-lg" href="#" role="button">ROSTER</a>
+        <a class="btn btn-primary btn-lg" href="#" role="button">ADD PLAYER</a>
+        <a class="btn btn-primary btn-lg" href="#" role="button">ADD LOCATION</a>
+    </div>
     <h2>TeamList</h2>
     <p>
-
+        @Html.ActionLink("Create New", "Create")
     </p>
     <table class="table">
         <tr>
@@ -40,8 +48,14 @@
                     @Html.DisplayFor(modelItem => item.Name)
                 </td>
                 <td>
-                    @Html.DisplayNameFor(model => model.Record)
-                </tr>
+                    @Html.DisplayFor(modelItem => item.Record)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.TeamId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.TeamId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.TeamId })
+                </td>
+            </tr>
         }
 
     </table>
