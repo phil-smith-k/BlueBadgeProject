@@ -171,6 +171,10 @@
     <Compile Include="Migrations\202003101520133_hometeam.Designer.cs">
       <DependentUpon>202003101520133_hometeam.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202003101817216_conferencename.cs" />
+    <Compile Include="Migrations\202003101817216_conferencename.Designer.cs">
+      <DependentUpon>202003101817216_conferencename.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="PlayerStats.cs" />
@@ -244,6 +248,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202003101520133_hometeam.resx">
       <DependentUpon>202003101520133_hometeam.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003101817216_conferencename.resx">
+      <DependentUpon>202003101817216_conferencename.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
