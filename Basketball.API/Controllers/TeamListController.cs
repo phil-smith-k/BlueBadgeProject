@@ -32,8 +32,6 @@ namespace Basketball.API.Controllers
                 }
                 else
                 {
-                    
-
                     teams = Enumerable.Empty<TeamList>();
 
                     ModelState.AddModelError(string.Empty, "Server error. Please contact administrator.");
@@ -63,6 +61,35 @@ namespace Basketball.API.Controllers
                 else 
                 {
                     team = new TeamDetails();
+
+                    ModelState.AddModelError(string.Empty, "Server error. Please contact administrator.");
+                }
+            }
+            return View(team);
+        }
+        //This will work for both conferences
+        public ActionResult EastConference(int id)
+        {
+            ConferenceDetails team = null;
+
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("https://localhost:44337/api/");
+                //HTTP GET BY ID
+                var responseTask = client.GetAsync($"Conference/{id}");
+                responseTask.Wait();
+
+                var result = responseTask.Result;
+                if (result.IsSuccessStatusCode)
+                {
+                    var readTask = result.Content.ReadAsAsync<ConferenceDetails>();
+                    readTask.Wait();
+
+                    team = readTask.Result;
+                }
+                else
+                {
+                    team = new ConferenceDetails();
 
                     ModelState.AddModelError(string.Empty, "Server error. Please contact administrator.");
                 }
