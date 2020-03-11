@@ -33,8 +33,11 @@ namespace Basketball.Services
         {
             using (var ctx = new ApplicationDbContext())
             {
+                // var query = ctx.Games.Include(g => g.)
+                var query = ctx.Games.ToList();
                 var entity = ctx.Games
                    .Single(g => g.GameId == id);
+                var playerStats = entity.PlayerStats.ToList();
 
                 return new GameDetails()
                 {
@@ -46,7 +49,8 @@ namespace Basketball.Services
                     HomeTeamScore = entity.HomeTeamScore,
                     AwayTeamScore = entity.AwayTeamScore,
                     WinningTeamName = entity.Winner,
-                    LosingTeamName = entity.Loser
+                    LosingTeamName = entity.Loser,
+                    PlayerStats = playerStats
                 };
 
             }

@@ -67,6 +67,34 @@ namespace Basketball.API.Controllers
             }
             return View(team);
         }
+        public ActionResult GameDetails(int id)
+        {
+            GameDetails game = null;
+
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("https://localhost:44337/api/");
+                //HTTP GET BY ID
+                var responseTask = client.GetAsync($"Game/{id}");
+                responseTask.Wait();
+
+                var result = responseTask.Result;
+                if (result.IsSuccessStatusCode)
+                {
+                    var readTask = result.Content.ReadAsAsync<GameDetails>();
+                    readTask.Wait();
+
+                    game = readTask.Result;
+                }
+                else
+                {
+                    game = new GameDetails();
+
+                    ModelState.AddModelError(string.Empty, "Server error. Please contact administrator.");
+                }
+            }
+            return View(game);
+        }
         //This will work for both conferences
         public ActionResult EastConference(int id)
         {
