@@ -13,7 +13,7 @@ namespace Basketball.API.Controllers
         // GET: TeamList
         public ActionResult Index()
         {
-            IEnumerable<TeamList> students = null;
+            IEnumerable<TeamList> teams = null;
 
             using (var client = new HttpClient())
             {
@@ -21,25 +21,53 @@ namespace Basketball.API.Controllers
                 //HTTP GET
                 var responseTask = client.GetAsync("Team");
                 responseTask.Wait();
-
+               
                 var result = responseTask.Result;
                 if (result.IsSuccessStatusCode)
                 {
                     var readTask = result.Content.ReadAsAsync<IList<TeamList>>();
                     readTask.Wait();
 
-                    students = readTask.Result;
+                    teams = readTask.Result;
                 }
-                else //web api sent error response 
+                else
                 {
-                    //log response status here..
+                    
 
-                    students = Enumerable.Empty<TeamList>();
+                    teams = Enumerable.Empty<TeamList>();
 
                     ModelState.AddModelError(string.Empty, "Server error. Please contact administrator.");
                 }
             }
-            return View(students);
+            return View(teams);
+        }
+        public ActionResult TeamDetails(int id)
+        {
+            TeamDetails team = null;
+
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("https://localhost:44337/api/");
+                //HTTP GET BY ID
+                var responseTask = client.GetAsync($"Team/{id}");
+                responseTask.Wait();
+
+                var result = responseTask.Result;
+                if (result.IsSuccessStatusCode)
+                {
+                    var readTask = result.Content.ReadAsAsync<TeamDetails>();
+                    readTask.Wait();
+
+                    team = readTask.Result;
+                }
+                else 
+                {
+                    team = new TeamDetails();
+
+                    ModelState.AddModelError(string.Empty, "Server error. Please contact administrator.");
+                }
+            }
+            return View(team);
         }
     }
 }
