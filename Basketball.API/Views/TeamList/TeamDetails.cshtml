@@ -17,9 +17,10 @@
         <h1 class="display-4">Git "R" Dun League!</h1>
         <hr class="my-4">
         <p>2020 SEASON</p>
-        <b class="btn btn-primary btn-lg" href="#" role="button">@Html.ActionLink("ALL TEAMS", "Conference", new { id = 2 }, new { @style = "color: white;" })</b>
-        <b class="btn btn-primary btn-lg" href="#" role="button">@Html.ActionLink("WEST CONFERENCE", "ConferenceDetails", new { id = 2 }, new { @style = "color: white;" })</b>
-        <b class="btn btn-primary btn-lg" href="#" role="button">@Html.ActionLink("EAST CONFERENCE", "ConferenceDetails", new { id = 1 }, new { @style = "color: white;" })</b>
+        <b class="btn btn-primary btn-lg" href="#" role="button">@Html.ActionLink("ALL TEAMS", "Index", null, new { @style = "color: white;" })</b>
+        <b class="btn btn-primary btn-lg" href="#" role="button">@Html.ActionLink("WEST CONFERENCE", "EastConference", new { id = 8 }, new { @style = "color: white;" })</b>
+        <b class="btn btn-primary btn-lg" href="#" role="button">@Html.ActionLink("EAST CONFERENCE", "EastConference", new { id = 7 }, new { @style = "color: white;" })</b>
+
     </div>
     <h2>Teams</h2>
     <p>
@@ -31,7 +32,7 @@
                 @Html.DisplayNameFor(model => model.Players.First().FullName)
             </th>
             <th>
-                @Html.DisplayNameFor(model =>model.Players.First().AveragePoints)
+                @Html.DisplayNameFor(model => model.Players.First().AveragePoints)
             </th>
         </tr>
 
@@ -47,6 +48,58 @@
             </tr>
         }
     </table>
+<h2>Games</h2>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.AllGames.First().Date)
+            </th>
+            <th>
+                Opponent
+            </th>
+            <th>
+                Result
+            </th>
+            <th>
+                @Html.DisplayFor(model => model.Name) Score
+            </th>
+            <th>
+                Opponent Score
+            </th>
+        </tr>
+
+        @foreach (var games in Model.AllGames)
+        {
+            var item = Model.Name == games.HomeTeamName ? games.AwayTeamName : games.HomeTeamName;
+            var teamScore = Model.Name == games.HomeTeamName ? games.HomeTeamScore : games.AwayTeamScore;
+            var opponentScore = Model.Name == games.HomeTeamName ? games.AwayTeamScore : games.HomeTeamScore;
+            // var tie = teamScore == opponentScore ? "TBD" : "";
+            var result = teamScore > opponentScore ? "W" : "L";
+            if (teamScore == opponentScore)
+            {
+                result = "---";
+            }
+
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => games.Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => result)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => teamScore)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => opponentScore)
+        </td>
+    </tr>
+        }
+    </table>
+
 </body>
 </html>
 
