@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Basketball.Data
 {
@@ -43,9 +40,9 @@ namespace Basketball.Data
             get
             {
                 int winCount = 0;
-                foreach(Game game in AllGames)
+                foreach (Game game in AllGames)
                 {
-                    if(game.Winner == Name)
+                    if (game.Winner == Name)
                     {
                         winCount += 1;
                     }
@@ -58,9 +55,9 @@ namespace Basketball.Data
             get
             {
                 int lossCount = 0;
-                foreach(Game game in AllGames)
+                foreach (Game game in AllGames)
                 {
-                    if(game.Loser == Name)
+                    if (game.Loser == Name)
                     {
                         lossCount += 1;
                     }
@@ -73,7 +70,7 @@ namespace Basketball.Data
         {
             get
             {
-                if(AwayGameLog == null || HomeGameLog == null)
+                if (AwayGameLog == null || HomeGameLog == null)
                 {
                     return new List<Game>();
                 }
@@ -81,7 +78,7 @@ namespace Basketball.Data
                 {
                     return HomeGameLog.Concat<Game>(AwayGameLog).ToList();
 
-               }
+                }
             }
         }
 

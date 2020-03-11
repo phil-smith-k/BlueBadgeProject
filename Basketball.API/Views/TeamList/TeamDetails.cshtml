@@ -52,6 +52,9 @@
     <table class="table">
         <tr>
             <th>
+                Game
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.AllGames.First().Date)
             </th>
             <th>
@@ -67,8 +70,9 @@
                 Opponent Score
             </th>
         </tr>
-
-        @foreach (var games in Model.AllGames)
+@{ 
+        int gameCount = Model.AllGames.Count;
+        foreach (var games in Model.AllGames)
         {
             var item = Model.Name == games.HomeTeamName ? games.AwayTeamName : games.HomeTeamName;
             var teamScore = Model.Name == games.HomeTeamName ? games.HomeTeamScore : games.AwayTeamScore;
@@ -81,6 +85,9 @@
             }
 
     <tr>
+        <td>
+            @Html.ActionLink(Html.DisplayFor(modelItem => gameCount).ToHtmlString(), "GameDetails", "TeamList", new { id = games.GameId }, null)
+        </td>
         <td>
             @Html.DisplayFor(modelItem => games.Date)
         </td>
@@ -97,11 +104,14 @@
             @Html.DisplayFor(modelItem => opponentScore)
         </td>
     </tr>
+            gameCount -= 1;
         }
+    }
     </table>
 
 </body>
 </html>
+    
 
 
 

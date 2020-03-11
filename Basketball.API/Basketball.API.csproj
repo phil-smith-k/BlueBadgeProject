@@ -290,6 +290,7 @@
     <Content Include="Views\TeamList\Index.cshtml" />
     <Content Include="Views\TeamList\TeamDetails.cshtml" />
     <Content Include="Views\TeamList\EastConference.cshtml" />
+    <Content Include="Views\TeamList\GameDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
