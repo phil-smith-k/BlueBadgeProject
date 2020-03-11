@@ -12,7 +12,7 @@ namespace Basketball.Models
         [Required]
         public int GameId { get; set; }
         [Required]
-        public int PlayerId { get; set; }
+        public string Player { get; set; }
         [Required]
         public int Points { get; set; }
         [Required]

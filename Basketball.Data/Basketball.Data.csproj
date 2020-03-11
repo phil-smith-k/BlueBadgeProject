@@ -175,6 +175,18 @@
     <Compile Include="Migrations\202003101817216_conferencename.Designer.cs">
       <DependentUpon>202003101817216_conferencename.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202003110041199_lmao.cs" />
+    <Compile Include="Migrations\202003110041199_lmao.Designer.cs">
+      <DependentUpon>202003110041199_lmao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003110106408_lmfao.cs" />
+    <Compile Include="Migrations\202003110106408_lmfao.Designer.cs">
+      <DependentUpon>202003110106408_lmfao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003110153179_lol.cs" />
+    <Compile Include="Migrations\202003110153179_lol.Designer.cs">
+      <DependentUpon>202003110153179_lol.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="PlayerStats.cs" />
@@ -256,6 +268,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202003101817216_conferencename.resx">
       <DependentUpon>202003101817216_conferencename.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003110041199_lmao.resx">
+      <DependentUpon>202003110041199_lmao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003110106408_lmfao.resx">
+      <DependentUpon>202003110106408_lmfao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003110153179_lol.resx">
+      <DependentUpon>202003110153179_lol.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="obj\Debug\Basketball.Data.Migrations.addedgametable.resources" />
     <EmbeddedResource Include="obj\Debug\Basketball.Data.Migrations.addedteamstoconference.resources" />
