@@ -39,7 +39,7 @@
         {
             <tr>
                 <td>
-                    @Html.ActionLink(Html.DisplayFor(modelItem => item.Location).ToHtmlString(), "TeamDetails", "TeamList", new { id = item.Name }, null)
+                    @Html.ActionLink(Html.DisplayFor(modelItem => item.Location).ToHtmlString(), "TeamDetails", "TeamList", new { id = item.TeamId }, null)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Name)
