@@ -74,7 +74,8 @@ namespace Basketball.Services
                                     Location = T.Location,
                                     Name = T.Name,
                                     Conference = T.Conference.Name,
-                                    Record = T.Record
+                                    Record = T.Record,
+                                    ConferenceId = T.ConferenceId
                                 }
                          );
 
