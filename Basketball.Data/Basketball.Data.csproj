@@ -187,6 +187,10 @@
     <Compile Include="Migrations\202003110153179_lol.Designer.cs">
       <DependentUpon>202003110153179_lol.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202003111338364_playeredit.cs" />
+    <Compile Include="Migrations\202003111338364_playeredit.Designer.cs">
+      <DependentUpon>202003111338364_playeredit.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="PlayerStats.cs" />
@@ -277,6 +281,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202003110153179_lol.resx">
       <DependentUpon>202003110153179_lol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003111338364_playeredit.resx">
+      <DependentUpon>202003111338364_playeredit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="obj\Debug\Basketball.Data.Migrations.addedgametable.resources" />
     <EmbeddedResource Include="obj\Debug\Basketball.Data.Migrations.addedteamstoconference.resources" />

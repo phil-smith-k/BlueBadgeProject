@@ -32,7 +32,7 @@ namespace Basketball.Services
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var query = ctx.PlayerStats.ToList().OrderByDescending(w => w.Points).Select(ps => new PlayerStatsList
+                var query = ctx.PlayerStats.ToList().OrderByDescending(w => w.PlayerStatsId).Select(ps => new PlayerStatsList
                 {
                     PlayerStatsId = ps.PlayerStatsId,
                     GameId = ps.GameId,
@@ -73,7 +73,7 @@ namespace Basketball.Services
                 var entity = ctx.PlayerStats.Find(model.PlayerStatsId);
 
                 entity.GameId = model.GameId;
-                entity.PlayerId = model.PlayerId;
+                entity.Player.LastName = model.Player;
                 entity.Points = model.Points;
                 entity.Rebounds = model.Rebounds;
                 entity.Assists = model.Assists;

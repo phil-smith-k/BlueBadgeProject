@@ -10,7 +10,7 @@ namespace Basketball.Models
     {
         public int PlayerStatsId { get; set; }
         public int GameId { get; set; }
-        public int PlayerId { get; set; }
+        public string Player { get; set; }
         public int Points { get; set; }
         public int Rebounds { get; set; }
         public int Assists { get; set; }
