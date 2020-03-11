@@ -1,7 +1,7 @@
-﻿@model IEnumerable<Basketball.Models.TeamList>
+﻿@model Basketball.Models.TeamDetails
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "TeamDetails";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -28,38 +28,27 @@
     <table class="table">
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Location)
+                @Html.DisplayNameFor(model => model.Players.First().FullName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Record)
+                @Html.DisplayNameFor(model =>model.Players.First().AveragePoints)
             </th>
         </tr>
 
-        @foreach (var item in Model)
+        @foreach (var player in Model.Players)
         {
             <tr>
                 <td>
-                    @Html.ActionLink(Html.DisplayFor(modelItem => item.Location).ToHtmlString(), "TeamDetails","TeamList", new {id = item.TeamId }, null)
+                    @Html.DisplayFor(modelItem => player.FullName)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Name)
+                    @Html.DisplayFor(modelItem => player.AveragePoints)
                 </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Record)
-                </td>
-
-                <td>
-                    @Html.ActionLink("Details", "Details", new { id = item.TeamId }) |
-                    @Html.ActionLink("Edit", "Edit", new { id = item.TeamId }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.TeamId })
-                </td>
-
             </tr>
         }
-
     </table>
 </body>
 </html>
+
+
+
