@@ -15,6 +15,7 @@ namespace Basketball.Models
         public int GameId { get; set; }
         public string Date { get; set; }
         public string FullName { get; set; }
+        public int GamesPlayed { get; set; }
         public int Points { get; set; }
         public int Rebounds { get; set; }
         public int Assists { get; set; }

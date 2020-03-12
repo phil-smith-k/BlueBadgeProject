@@ -191,6 +191,10 @@
     <Compile Include="Migrations\202003111338364_playeredit.Designer.cs">
       <DependentUpon>202003111338364_playeredit.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202003121537520_stats.cs" />
+    <Compile Include="Migrations\202003121537520_stats.Designer.cs">
+      <DependentUpon>202003121537520_stats.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="PlayerStats.cs" />
@@ -284,6 +288,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202003111338364_playeredit.resx">
       <DependentUpon>202003111338364_playeredit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003121537520_stats.resx">
+      <DependentUpon>202003121537520_stats.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="obj\Debug\Basketball.Data.Migrations.addedgametable.resources" />
     <EmbeddedResource Include="obj\Debug\Basketball.Data.Migrations.addedteamstoconference.resources" />
