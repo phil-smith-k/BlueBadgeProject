@@ -1,4 +1,5 @@
-﻿using Basketball.Models;
+﻿using Basketball.Data;
+using Basketball.Models;
 using Basketball.Services;
 using System;
 using System.Collections.Generic;
@@ -14,38 +15,38 @@ namespace Basketball.API.Controllers
         public IHttpActionResult Get()
         {
             TeamService teamService = CreateTeamService();
-            var notes = teamService.GetTeams();
-            return Ok(notes);
+            var teams = teamService.GetTeams();
+            return Ok(teams);
         }
 
         public IHttpActionResult Get(int id)
         {
             TeamService teamService = CreateTeamService();
-            var note = teamService.GetTeamById(id);
-            return Ok(note);
+            var team = teamService.GetTeamById(id);
+            return Ok(team);
         }
 
-        public IHttpActionResult Post(CreateNewTeam note)
+        public IHttpActionResult Post(CreateNewTeam team)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
             var service = CreateTeamService();
 
-            if (!service.CreateNewTeam(note))
+            if (!service.CreateNewTeam(team))
                 return InternalServerError();
 
             return Ok();
         }
 
-        public IHttpActionResult Put(TeamEdit note)
+        public IHttpActionResult Put(TeamEdit team)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
             var service = CreateTeamService();
 
-            if (!service.UpdateTeam(note))
+            if (!service.UpdateTeam(team))
                 return InternalServerError();
 
             return Ok();
@@ -53,8 +54,8 @@ namespace Basketball.API.Controllers
 
         private TeamService CreateTeamService()
         {
-            var noteService = new TeamService();
-            return noteService;
+            var teamService = new TeamService();
+            return teamService;
         }
 
 

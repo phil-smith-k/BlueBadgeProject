@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Basketball.Data
 {
@@ -24,5 +21,67 @@ namespace Basketball.Data
         public virtual Conference Conference { get; set; }
 
         public virtual ICollection<Player> Roster { get; set; }
+        public virtual ICollection<PlayerStats> PlayerStats { get; set; }
+
+        [InverseProperty("HomeTeam")]
+        public virtual ICollection<Game> HomeGameLog { get; set; }
+
+        [InverseProperty("AwayTeam")]
+        public virtual ICollection<Game> AwayGameLog { get; set; }
+        public string Record
+        {
+            get
+            {
+                return Wins + "-" + Losses;
+            }
+        }
+        public int Wins
+        {
+            get
+            {
+                int winCount = 0;
+                foreach (Game game in AllGames)
+                {
+                    if (game.Winner == Name)
+                    {
+                        winCount += 1;
+                    }
+                }
+                return winCount;
+            }
+        }
+        public int Losses
+        {
+            get
+            {
+                int lossCount = 0;
+                foreach (Game game in AllGames)
+                {
+                    if (game.Loser == Name)
+                    {
+                        lossCount += 1;
+                    }
+                }
+                return lossCount;
+            }
+        }
+
+        public virtual ICollection<Game> AllGames
+        {
+            get
+            {
+                if (AwayGameLog == null || HomeGameLog == null)
+                {
+                    return new List<Game>();
+                }
+                else
+                {
+                    return HomeGameLog.Concat<Game>(AwayGameLog).ToList();
+
+                }
+            }
+        }
+
+
     }
 }

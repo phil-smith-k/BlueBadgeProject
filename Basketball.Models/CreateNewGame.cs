@@ -10,10 +10,10 @@ namespace Basketball.Models
     public class CreateNewGame
     {
         [Required]
-        public int HomeTeamId { get; set; }
+        public string HomeTeam { get; set; }
 
         [Required]
-        public int AwayTeamId { get; set; }
+        public string AwayTeam { get; set; }
 
         [Required]
         [DataType(DataType.DateTime)]

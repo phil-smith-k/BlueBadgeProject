@@ -26,6 +26,7 @@ namespace Basketball.Data
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
+            // this.Configuration.LazyLoadingEnabled = false;
         }
         
         public static ApplicationDbContext Create()
@@ -37,6 +38,7 @@ namespace Basketball.Data
         public DbSet<Game> Games { get; set; }
         public DbSet<Team> Teams { get; set; }
         public DbSet<Conference> Conferences { get; set; }
+        public DbSet<PlayerStats> PlayerStats { get; set; }
         
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

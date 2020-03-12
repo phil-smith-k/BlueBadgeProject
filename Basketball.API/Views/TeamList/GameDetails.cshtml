@@ -1,0 +1,145 @@
+﻿@model Basketball.Models.GameDetails
+
+@{
+    ViewBag.Title = "TeamDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+    <div class="jumbotron">
+        <h1 class="display-4">Git "R" Dun League!</h1>
+        <hr class="my-4">
+        <p>2020 SEASON</p>
+        <b class="btn btn-primary btn-lg" href="#" role="button">@Html.ActionLink("ALL TEAMS", "Index", null, new { @style = "color: white;" })</b>
+        <b class="btn btn-primary btn-lg" href="#" role="button">@Html.ActionLink("WEST CONFERENCE", "EastConference", new { id = 8 }, new { @style = "color: white;" })</b>
+        <b class="btn btn-primary btn-lg" href="#" role="button">@Html.ActionLink("EAST CONFERENCE", "EastConference", new { id = 7 }, new { @style = "color: white;" })</b>
+
+    </div>
+    <h2>Teams</h2>
+    @*<p>
+        @Html.ActionLink("Create New", "Create")
+    </p>*@
+    <h2>Game</h2>
+    <table class="table">
+        <tr>
+            <th>
+                Date
+            </th>
+            <th>
+                @Html.DisplayFor(model => model.HomeTeamName)
+            </th>
+            <th>
+                @Html.DisplayFor(model => model.AwayTeamName)
+            </th>
+            <th>
+                Location
+            </th>
+        </tr>
+        @{
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => modelItem.Date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => modelItem.HomeTeamScore)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => modelItem.AwayTeamScore)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => modelItem.Location)
+                </td>
+            </tr>
+        }
+
+    </table>
+    <h2>@Model.HomeTeamName</h2>
+    <table class="table">
+        <tr>
+            <th>
+                Player
+            </th>
+            <th>
+                Points
+            </th>
+            <th>
+                Rebounds
+            <th>
+                Assists
+            </th>
+        </tr>
+
+
+        @foreach (var player in Model.PlayerStats)
+        {
+            if (player.Player.TeamName == Model.HomeTeamName)
+            {
+
+                <tr>
+                    <td>
+                        @Html.DisplayFor(model => player.Player.FullName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => player.Points)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => player.Rebounds)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => player.Assists)
+                    </td>
+                </tr>
+            }
+        }
+    </table>
+    <h2>@Model.AwayTeamName</h2>
+    <table class="table">
+        <tr>
+            <th>
+                Player
+            </th>
+            <th>
+                Points
+            </th>
+            <th>
+                Rebounds
+            <th>
+                Assists
+            </th>
+        </tr>
+
+        @foreach (var player in Model.PlayerStats)
+        {
+            if (player.Player.TeamName == Model.AwayTeamName)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(model => player.Player.FullName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => player.Points)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => player.Rebounds)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => player.Assists)
+                    </td>
+                </tr>
+            }
+        }
+    </table>
+
+
+</body>
+</html>
+
+
+

@@ -14,6 +14,8 @@ namespace Basketball.Data
 
 		[Required]
 		public string Name { get; set; }
+
+		public virtual ICollection<Team> AllTeams { get; set; }
 	}
 
 }

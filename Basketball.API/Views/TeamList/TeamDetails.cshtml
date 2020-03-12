@@ -1,0 +1,135 @@
+﻿@model Basketball.Models.TeamDetails
+
+@{
+    ViewBag.Title = "TeamDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+    <div class="jumbotron">
+        <h1 class="display-4">Git "R" Dun League!</h1>
+        <hr class="my-4">
+        <p>2020 SEASON</p>
+        <b class="btn btn-primary btn-lg" href="#" role="button">@Html.ActionLink("ALL TEAMS", "Index", null, new { @style = "color: white;" })</b>
+        <b class="btn btn-primary btn-lg" href="#" role="button">@Html.ActionLink("WEST CONFERENCE", "EastConference", new { id = 8 }, new { @style = "color: white;" })</b>
+        <b class="btn btn-primary btn-lg" href="#" role="button">@Html.ActionLink("EAST CONFERENCE", "EastConference", new { id = 7 }, new { @style = "color: white;" })</b>
+
+    </div>
+    <h2>Teams</h2>
+    @*<p>
+            @Html.ActionLink("Create New", "Create")
+        </p>*@
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Players.First().FullName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Players.First().GamesPlayed)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Players.First().AveragePoints)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Players.First().AverageRebounds)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Players.First().AverageAssists)
+            </th>
+        </tr>
+
+        @foreach (var player in Model.Players)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => player.FullName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => player.GamesPlayed)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => player.AveragePoints)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => player.AverageRebounds)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => player.AverageAssists)
+                </td>
+            </tr>
+        }
+    </table>
+    <h2>Games</h2>
+    <table class="table">
+        <tr>
+            <th>
+                Game
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AllGames.First().Date)
+            </th>
+            <th>
+                Opponent
+            </th>
+            <th>
+                Result
+            </th>
+            <th>
+                @Html.DisplayFor(model => model.Name) Score
+            </th>
+            <th>
+                Opponent Score
+            </th>
+        </tr>
+        @{
+            int gameCount = Model.AllGames.Count;
+            foreach (var games in Model.AllGames)
+            {
+                var item = Model.Name == games.HomeTeamName ? games.AwayTeamName : games.HomeTeamName;
+                var teamScore = Model.Name == games.HomeTeamName ? games.HomeTeamScore : games.AwayTeamScore;
+                var opponentScore = Model.Name == games.HomeTeamName ? games.AwayTeamScore : games.HomeTeamScore;
+                // var tie = teamScore == opponentScore ? "TBD" : "";
+                var result = teamScore > opponentScore ? "W" : "L";
+                if (teamScore == opponentScore)
+                {
+                    result = "---";
+                }
+
+                <tr>
+                    <td>
+                        @Html.ActionLink(Html.DisplayFor(modelItem => gameCount).ToHtmlString(), "GameDetails", "TeamList", new { id = games.GameId }, null)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => games.Date)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => result)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => teamScore)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => opponentScore)
+                    </td>
+                </tr>
+                gameCount -= 1;
+            }
+        }
+    </table>
+
+</body>
+</html>
+
+
+
+
