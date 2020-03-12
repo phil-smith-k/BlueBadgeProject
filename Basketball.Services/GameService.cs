@@ -34,7 +34,7 @@ namespace Basketball.Services
             using (var ctx = new ApplicationDbContext())
             {
                 // var query = ctx.Games.Include(g => g.)
-                var query = ctx.Games.ToList();
+                var query = ctx.Games.Include("PlayerStats").ToList();
                 var entity = ctx.Games
                    .Single(g => g.GameId == id);
                 var playerStats = entity.PlayerStats.ToList();
@@ -50,7 +50,7 @@ namespace Basketball.Services
                     AwayTeamScore = entity.AwayTeamScore,
                     WinningTeamName = entity.Winner,
                     LosingTeamName = entity.Loser,
-                    PlayerStats = playerStats
+                    PlayerStats = playerStats.Select(p => new PlayerStatsList { Player = new PlayerDetails { FullName = p.Player.FullName, TeamName = p.Player.Team.Name, AveragePoints = p.Player.AveragePoints, AverageRebounds = p.Player.AverageRebounds, AverageAssists = p.Player.AverageAssists }, Points = p.Points, Rebounds = p.Rebounds, Assists = p.Assists}).ToList()
                 };
 
             }

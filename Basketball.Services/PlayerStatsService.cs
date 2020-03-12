@@ -35,6 +35,7 @@ namespace Basketball.Services
                 var query = ctx.PlayerStats.ToList().OrderByDescending(w => w.PlayerStatsId).Select(ps => new PlayerStatsList
                 {
                     PlayerStatsId = ps.PlayerStatsId,
+                    Player = new PlayerDetails { FullName = ps.Player.FullName, TeamName = ps.Player.Team.Name, AveragePoints = ps.Player.AveragePoints, AverageRebounds = ps.Player.AverageRebounds, AverageAssists = ps.Player.AverageAssists}  ,
                     GameId = ps.GameId,
                     Date = ps.Game.Date.ToShortDateString(),
                     FullName = ps.Player.FullName,
