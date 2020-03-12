@@ -18,6 +18,6 @@ namespace Basketball.Models
         public int AwayTeamScore { get; set; }
         public string WinningTeamName { get; set; }
         public string LosingTeamName { get; set; }
-        public List<PlayerStats> PlayerStats { get; set; }
+        public List<PlayerStatsList> PlayerStats { get; set; }
     }
 }

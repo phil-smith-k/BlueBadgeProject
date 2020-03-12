@@ -58,7 +58,7 @@
                 </td>
             </tr>
         }
-        }
+
     </table>
     <h2>@Model.HomeTeamName</h2>
     <table class="table">
@@ -75,25 +75,25 @@
                 Assists
             </th>
         </tr>
-        
+
 
         @foreach (var player in Model.PlayerStats)
         {
-            if (player.Player.Team.Name == Model.HomeTeamName)
+            if (player.Player.TeamName == Model.HomeTeamName)
             {
-                
+
                 <tr>
                     <td>
-                        @Html.DisplayNameFor(model => model.PlayerStats.First().Player.FullName)
+                        @Html.DisplayFor(model => player.Player.FullName)
                     </td>
                     <td>
-                        @Html.DisplayNameFor(model => model.PlayerStats.First().Points)
+                        @Html.DisplayFor(model => player.Points)
                     </td>
                     <td>
-                        @Html.DisplayNameFor(model => model.PlayerStats.First().Rebounds)
+                        @Html.DisplayFor(model => player.Rebounds)
                     </td>
                     <td>
-                        @Html.DisplayNameFor(model => model.PlayerStats.First().Assists)
+                        @Html.DisplayFor(model => player.Assists)
                     </td>
                 </tr>
             }
@@ -117,20 +117,20 @@
 
         @foreach (var player in Model.PlayerStats)
         {
-            if (player.Player.Team.Name == Model.AwayTeamName)
+            if (player.Player.TeamName == Model.AwayTeamName)
             {
                 <tr>
                     <td>
-                        @Html.DisplayNameFor(model => model.PlayerStats.First().Player.FullName)
+                        @Html.DisplayFor(model => player.Player.FullName)
                     </td>
                     <td>
-                        @Html.DisplayNameFor(model => model.PlayerStats.First().Points)
+                        @Html.DisplayFor(model => player.Points)
                     </td>
                     <td>
-                        @Html.DisplayNameFor(model => model.PlayerStats.First().Rebounds)
+                        @Html.DisplayFor(model => player.Rebounds)
                     </td>
                     <td>
-                        @Html.DisplayNameFor(model => model.PlayerStats.First().Assists)
+                        @Html.DisplayFor(model => player.Assists)
                     </td>
                 </tr>
             }
