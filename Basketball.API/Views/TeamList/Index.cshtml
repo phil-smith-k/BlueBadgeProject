@@ -22,9 +22,9 @@
         <b class="btn btn-primary btn-lg" href="#" role="button">@Html.ActionLink("EAST CONFERENCE", "EastConference", new { id = 7}, new { @style = "color: white;" })</b>
     </div>
     <h2>Teams</h2>
-    <p>
+    @*<p>
         @Html.ActionLink("Create New Team", "Create")
-    </p>
+    </p>*@
     <table class="table">
         <tr>
             <th>
@@ -51,10 +51,10 @@
                     @Html.DisplayFor(modelItem => item.Record)
                 </td>
 
-                <td>
+                @*<td>
                     @Html.ActionLink("Edit", "Edit", new { id = item.TeamId }) |
                     @Html.ActionLink("Delete", "Delete", new { id = item.TeamId })
-                </td>
+                </td>*@
 
             </tr>
         }

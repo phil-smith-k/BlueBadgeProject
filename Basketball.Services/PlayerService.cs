@@ -41,7 +41,9 @@ namespace Basketball.Services
                                     PlayerId = e.PlayerId,
                                     FullName = e.FullName,
                                     TeamName = e.Team.Name,
-                                    AveragePoints = e.AveragePoints
+                                    AveragePoints = e.AveragePoints,
+                                    AverageRebounds = e.AverageRebounds,
+                                    AverageAssists = e.AverageAssists
                                 }
                         );
                 return result.ToArray();

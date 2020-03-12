@@ -36,7 +36,7 @@ namespace Basketball.Services
                         Name = entity.Name,
                         ConferenceName = entity.Conference.Name,
                         Record = entity.Record,
-                        Players = roster.Select(c => new PlayerList { FullName = c.FullName, PlayerId = c.PlayerId, TeamName = c.Team.Name, AveragePoints = c.AveragePoints }).ToList(),
+                        Players = roster.Select(c => new PlayerList { FullName = c.FullName, PlayerId = c.PlayerId, TeamName = c.Team.Name, GamesPlayed = c.GamesPlayed, AveragePoints = c.AveragePoints, AverageRebounds = c.AverageRebounds, AverageAssists = c.AverageAssists }).ToList(),
                         AllGames = allGames.Select(g => new GameList { GameId = g.GameId, Date = g.Date.ToShortDateString(), Location = g.Location, HomeTeamName = g.HomeTeam.Name, AwayTeamName = g.AwayTeam.Name, HomeTeamScore = g.HomeTeamScore, AwayTeamScore = g.AwayTeamScore, Winner = g.Winner }).ToList()
                     };
             }

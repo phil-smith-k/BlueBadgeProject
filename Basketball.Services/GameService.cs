@@ -50,7 +50,7 @@ namespace Basketball.Services
                     AwayTeamScore = entity.AwayTeamScore,
                     WinningTeamName = entity.Winner,
                     LosingTeamName = entity.Loser,
-                    PlayerStats = playerStats.Select(p => new PlayerStatsList { Player = new PlayerDetails { FullName = p.Player.FullName, TeamName = p.Player.Team.Name, AveragePoints = p.Player.AveragePoints, AverageRebounds = p.Player.AverageRebounds, AverageAssists = p.Player.AverageAssists }, Points = p.Points, Rebounds = p.Rebounds, Assists = p.Assists}).ToList()
+                    PlayerStats = playerStats.Select(p => new PlayerStatsList { Player = new PlayerDetails { FullName = p.Player.FullName, TeamName = p.Player.Team.Name,GamesPlayed = p.Player.GamesPlayed, AveragePoints = p.Player.AveragePoints, AverageRebounds = p.Player.AverageRebounds, AverageAssists = p.Player.AverageAssists }, Points = p.Points, Rebounds = p.Rebounds, Assists = p.Assists}).ToList()
                 };
 
             }
