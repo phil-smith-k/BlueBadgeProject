@@ -96,6 +96,6 @@ namespace Basketball.Data
 			}
 		}
 		public ICollection<PlayerStats> PlayerStats { get; set; } = new HashSet<PlayerStats>();
-
+		public ICollection<ApplicationUser> UsersWhoFavorited { get; set; }
 	}
 }
