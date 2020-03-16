@@ -195,6 +195,14 @@
     <Compile Include="Migrations\202003121537520_stats.Designer.cs">
       <DependentUpon>202003121537520_stats.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202003122002369_favorites.cs" />
+    <Compile Include="Migrations\202003122002369_favorites.Designer.cs">
+      <DependentUpon>202003122002369_favorites.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003122005255_PlayerFavorite.cs" />
+    <Compile Include="Migrations\202003122005255_PlayerFavorite.Designer.cs">
+      <DependentUpon>202003122005255_PlayerFavorite.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="PlayerStats.cs" />
@@ -291,6 +299,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202003121537520_stats.resx">
       <DependentUpon>202003121537520_stats.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003122002369_favorites.resx">
+      <DependentUpon>202003122002369_favorites.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003122005255_PlayerFavorite.resx">
+      <DependentUpon>202003122005255_PlayerFavorite.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="obj\Debug\Basketball.Data.Migrations.addedgametable.resources" />
     <EmbeddedResource Include="obj\Debug\Basketball.Data.Migrations.addedteamstoconference.resources" />
