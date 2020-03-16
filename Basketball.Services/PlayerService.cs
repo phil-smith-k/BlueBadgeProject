@@ -71,6 +71,30 @@ namespace Basketball.Services
                     };
             }
         }
+        public bool AddToFavoriteList(int id, Guid userId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var user = ctx.Users.Find(userId.ToString());
+                var player = ctx.Players.Find(id);
+
+                user.FavoritedPlayers.Add(player);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+        public bool RemoveFromFavoriteList(int id, Guid userId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var user = ctx.Users.Find(userId.ToString());
+                var player = ctx.Players.Find(id);
+
+                user.FavoritedPlayers.Remove(player);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
         public bool UpdatePlayer(PlayerEdit model)
         {
             using (var ctx = new ApplicationDbContext())
