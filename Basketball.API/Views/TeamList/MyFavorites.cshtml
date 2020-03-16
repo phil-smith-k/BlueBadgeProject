@@ -1,7 +1,7 @@
 ﻿@model Basketball.Models.ConferenceDetails
 
 @{
-    ViewBag.Title = "EastConference";
+    ViewBag.Title = "MyFavorites";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -21,19 +21,18 @@
         <b class="btn btn-primary btn-lg" href="#" role="button">@Html.ActionLink("WEST CONFERENCE", "EastConference", new { id = 8 }, new { @style = "color: white;" })</b>
         <b class="btn btn-primary btn-lg" href="#" role="button">@Html.ActionLink("EAST CONFERENCE", "EastConference", new { id = 7 }, new { @style = "color: white;" })</b>
         <b class="btn btn-primary btn-lg" href="#" role="button">@Html.ActionLink("MY FAVORITES", "EastConference", new { id = 7 }, new { @style = "color: white;" })</b>
-
     </div>
-    <h2>Teams</h2>
+    <h2>Favorite Teams</h2>
     <table class="table">
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Teams.First().Location)
+                Team Name
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Teams.First().Name)
+                Location
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Teams.First().Record)
+                Record
             </th>
         </tr>
 
@@ -41,10 +40,45 @@
         {
             <tr>
                 <td>
-                    @Html.ActionLink(Html.DisplayFor(modelItem => item.Location).ToHtmlString(), "TeamDetails", "TeamList", new { id = item.TeamId }, null)
+                    @Html.DisplayFor(modelItem => item.Name)
                 </td>
                 <td>
+                    @Html.DisplayFor(modelItem => item.Location)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Record)
+                </td>
+            </tr>
+        }
+    </table>
+    <h2>Favorite Players</h2>
+    <table class="table">
+        <tr>
+            <th>
+                Player Name
+            </th>
+            <th>
+                Team
+            </th>
+            <th>
+                Average Points
+            </th>
+            <th>
+                Average Rebounds
+            </th>
+            <th>
+                Average Assists
+            </th>
+        </tr>
+
+        @foreach (var item in Model.Teams)
+        {
+            <tr>
+                <td>
                     @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Location)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Record)
