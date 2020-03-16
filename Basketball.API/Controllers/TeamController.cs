@@ -11,7 +11,6 @@ using System.Web.Http;
 
 namespace Basketball.API.Controllers
 {
-    [Authorize]
     public class TeamController : ApiController
     {
         public IHttpActionResult Get()
@@ -40,6 +39,7 @@ namespace Basketball.API.Controllers
 
             return Ok();
         }
+    [Authorize]
         public IHttpActionResult PostFavorite(int id)
         {
             var user = Guid.Parse(this.User.Identity.GetUserId());
