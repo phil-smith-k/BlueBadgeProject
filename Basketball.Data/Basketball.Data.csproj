@@ -195,6 +195,10 @@
     <Compile Include="Migrations\202003121537520_stats.Designer.cs">
       <DependentUpon>202003121537520_stats.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202003121814021_Favorite.cs" />
+    <Compile Include="Migrations\202003121814021_Favorite.Designer.cs">
+      <DependentUpon>202003121814021_Favorite.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\202003122002369_favorites.cs" />
     <Compile Include="Migrations\202003122002369_favorites.Designer.cs">
       <DependentUpon>202003122002369_favorites.cs</DependentUpon>
@@ -299,6 +303,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202003121537520_stats.resx">
       <DependentUpon>202003121537520_stats.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003121814021_Favorite.resx">
+      <DependentUpon>202003121814021_Favorite.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202003122002369_favorites.resx">
       <DependentUpon>202003122002369_favorites.cs</DependentUpon>
