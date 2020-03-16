@@ -58,6 +58,19 @@ namespace Basketball.Services
                 return ctx.SaveChanges() == 1;
             }
         }
+        
+        public bool AddToFavoriteList(int id, Guid userId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var user = ctx.Users.Find(userId.ToString());
+                var team = ctx.Teams.Find(id);
+
+                user.FavoritedTeams.Add(team);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
 
         public IEnumerable<TeamList> GetTeams()
         {
