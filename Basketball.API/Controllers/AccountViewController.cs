@@ -16,7 +16,27 @@ namespace Basketball.API.Controllers
         {
             return View();
         }
-        public ActionResult Login(ClientLoginBindingModel model, string returnUrl)
+        public ActionResult Create(RegisterBindingModel model)
+        {
+            using (var client = new HttpClient())
+            {
+                var pairs = new List<KeyValuePair<string, string>>
+                {
+                    new KeyValuePair<string, string>("Email", model.Email),
+                    new KeyValuePair<string, string>("username", model.Password),
+                    new KeyValuePair<string, string>("password", model.ConfirmPassword)
+                };
+
+                var content = new FormUrlEncodedContent(pairs);
+                client.BaseAddress = new Uri("https://localhost:44337/api");
+                var response = client.PostAsync("Account/Register", content).Result;
+                var token = response.Content.ReadAsStringAsync().Result;
+                Response.Cookies.Add(CreateCookies(token));
+
+                return View();
+            }
+        }
+        public ActionResult Login(ClientLoginBindingModel model)
         {
             var pairs = new List<KeyValuePair<string, string>>
             {
@@ -37,7 +57,6 @@ namespace Basketball.API.Controllers
                 return View();
             }
         }
-
         private HttpCookie CreateCookies(string token)
         {
             HttpCookie loginCookies = new HttpCookie("UserToken");
