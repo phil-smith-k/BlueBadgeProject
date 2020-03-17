@@ -39,7 +39,7 @@ namespace Basketball.API.Controllers
 
             return Ok();
         }
-        [Authorize]
+        //[Authorize]
         public IHttpActionResult PostFavorite(int id)
         {
             var user = Guid.Parse(this.User.Identity.GetUserId());
@@ -51,7 +51,7 @@ namespace Basketball.API.Controllers
 
             return Ok();
         }
-        [Authorize]
+        //[Authorize]
         public IHttpActionResult RemoveFavorite(int id)
         {
             var user = Guid.Parse(this.User.Identity.GetUserId());

@@ -41,7 +41,7 @@ namespace Basketball.API.Controllers
             var player = playerService.GetPlayerById(id);
             return Ok(player);
         }
-        [Authorize]
+        //[Authorize]
         public IHttpActionResult PostFavorite(int id)
         {
             var user = Guid.Parse(this.User.Identity.GetUserId());
@@ -53,7 +53,7 @@ namespace Basketball.API.Controllers
 
             return Ok();
         }
-        [Authorize]
+        //[Authorize]
         public IHttpActionResult DeleteFavorite(int id)
         {
             var user = Guid.Parse(this.User.Identity.GetUserId());
@@ -77,6 +77,8 @@ namespace Basketball.API.Controllers
 
             return Ok();
         }
+        [HttpDelete]
+        [Route("api/Player/{id}")]
         public IHttpActionResult Delete(int id)
         {
             var service = CreatePlayerService();
