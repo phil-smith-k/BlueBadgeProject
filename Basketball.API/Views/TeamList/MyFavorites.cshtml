@@ -1,4 +1,4 @@
-﻿@model Basketball.Models.ConferenceDetails
+﻿@model IEnumerable<Basketball.Models.TeamList>
 
 @{
     ViewBag.Title = "MyFavorites";
@@ -36,7 +36,7 @@
             </th>
         </tr>
 
-        @foreach (var item in Model.Teams)
+        @foreach (var item in Model)
         {
             <tr>
                 <td>
@@ -71,7 +71,7 @@
             </th>
         </tr>
 
-        @foreach (var item in Model.Teams)
+        @foreach (var item in Model)
         {
             <tr>
                 <td>

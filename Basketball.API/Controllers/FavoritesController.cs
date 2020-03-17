@@ -12,6 +12,7 @@ namespace Basketball.API.Controllers
     public class FavoritesController : Controller
     {
         // GET: TeamList
+        [System.Web.Mvc.Route("/Favorites")]
         public ActionResult Index()
         {
             IEnumerable<TeamList> teams = null;
@@ -20,7 +21,7 @@ namespace Basketball.API.Controllers
             {
                 client.BaseAddress = new Uri("https://localhost:44337/api/");
                 //HTTP GET
-                var responseTask = client.GetAsync("MyFavorites");
+                var responseTask = client.GetAsync("Team");
                 responseTask.Wait();
 
                 var result = responseTask.Result;
