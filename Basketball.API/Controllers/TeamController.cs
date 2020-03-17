@@ -11,6 +11,7 @@ using System.Web.Http;
 
 namespace Basketball.API.Controllers
 {
+    
     public class TeamController : ApiController
     {
         public IHttpActionResult Get()
@@ -39,7 +40,9 @@ namespace Basketball.API.Controllers
 
             return Ok();
         }
-        //[Authorize]
+        [Authorize]
+        [HttpPost]
+        [Route("api/team/{id}")]
         public IHttpActionResult PostFavorite(int id)
         {
             var user = Guid.Parse(this.User.Identity.GetUserId());
@@ -51,7 +54,9 @@ namespace Basketball.API.Controllers
 
             return Ok();
         }
-        //[Authorize]
+        [Authorize]
+        [HttpDelete]
+        [Route("api/team/{id}")]
         public IHttpActionResult RemoveFavorite(int id)
         {
             var user = Guid.Parse(this.User.Identity.GetUserId());
