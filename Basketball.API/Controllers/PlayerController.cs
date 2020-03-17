@@ -55,10 +55,7 @@ namespace Basketball.API.Controllers
 
             return Ok();
         }
-        [Authorize]
-        [HttpDelete]
-        [Route("api/team/{id}")]
-        public IHttpActionResult DeleteFavorite(int id)
+        public IHttpActionResult RemoveFavorite(int id)
         {
             var user = Guid.Parse(this.User.Identity.GetUserId());
 
