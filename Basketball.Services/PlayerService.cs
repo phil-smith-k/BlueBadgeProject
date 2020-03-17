@@ -12,15 +12,15 @@ namespace Basketball.Services
     {
         public bool CreatePlayer(CreateNewPlayer model)
         {
+            using (var ctx = new ApplicationDbContext())
+            {
             var entity =
                 new Player()
                 {
                     FirstName = model.FirstName,
                     LastName = model.LastName,
-                    TeamId = model.TeamId
+                    Team = ctx.Teams.Single(t => t.Name == model.Team)
                 };
-            using (var ctx = new ApplicationDbContext())
-            {
                 ctx.Players.Add(entity);
                 return ctx.SaveChanges() == 1;
             }
@@ -31,7 +31,8 @@ namespace Basketball.Services
             {
                 var query =
                     ctx
-                        .Players.ToList();
+                        .Players.Include("PlayerStats").ToList();
+
 
                         var result = query.Select(
                             e =>
@@ -39,7 +40,10 @@ namespace Basketball.Services
                                 {
                                     PlayerId = e.PlayerId,
                                     FullName = e.FullName,
-                                    TeamName = e.Team.Name
+                                    TeamName = e.Team.Name,
+                                    AveragePoints = e.AveragePoints,
+                                    AverageRebounds = e.AverageRebounds,
+                                    AverageAssists = e.AverageAssists
                                 }
                         );
                 return result.ToArray();
@@ -52,6 +56,7 @@ namespace Basketball.Services
                 var entity =
                     ctx
                         .Players
+                        .Include("PlayerStats")
                         .Single(e => e.PlayerId == id);
                 return
                     new PlayerDetails
@@ -59,7 +64,35 @@ namespace Basketball.Services
                         PlayerId = entity.PlayerId,
                         FullName = entity.FullName,
                         TeamName = entity.Team.Name,
+                        GamesPlayed = entity.GamesPlayed,
+                        AveragePoints = entity.AveragePoints,
+                        AverageRebounds = entity.AverageRebounds,
+                        AverageAssists = entity.AverageAssists
                     };
+            }
+        }
+        public bool AddToFavoriteList(int id, Guid userId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var user = ctx.Users.Find(userId.ToString());
+                var player = ctx.Players.Find(id);
+
+                user.FavoritedPlayers.Add(player);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+        public bool RemoveFromFavoriteList(int id, Guid userId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var user = ctx.Users.Find(userId.ToString());
+                var player = ctx.Players.Find(id);
+
+                user.FavoritedPlayers.Remove(player);
+
+                return ctx.SaveChanges() == 1;
             }
         }
         public bool UpdatePlayer(PlayerEdit model)

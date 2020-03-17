@@ -1,5 +1,7 @@
-﻿using Basketball.Models;
+﻿using Basketball.Data;
+using Basketball.Models;
 using Basketball.Services;
+using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -37,7 +39,30 @@ namespace Basketball.API.Controllers
 
             return Ok();
         }
+        [Authorize]
+        public IHttpActionResult PostFavorite(int id)
+        {
+            var user = Guid.Parse(this.User.Identity.GetUserId());
 
+            var service = CreateTeamService();
+
+            if (!service.AddToFavoriteList(id, user))
+                return InternalServerError();
+
+            return Ok();
+        }
+        [Authorize]
+        public IHttpActionResult RemoveFavorite(int id)
+        {
+            var user = Guid.Parse(this.User.Identity.GetUserId());
+
+            var service = CreateTeamService();
+
+            if (!service.RemoveFromFavoriteList(id, user))
+                return InternalServerError();
+
+            return Ok();
+        }
         public IHttpActionResult Put(TeamEdit team)
         {
             if (!ModelState.IsValid)

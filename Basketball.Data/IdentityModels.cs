@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using System.Collections.Generic;
+using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Security.Claims;
@@ -12,6 +13,8 @@ namespace Basketball.Data
     // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit https://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
     public class ApplicationUser : IdentityUser
     {
+        public virtual ICollection<Player> FavoritedPlayers { get; set; }
+        public virtual ICollection<Team> FavoritedTeams { get; set; }
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager, string authenticationType)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
@@ -26,6 +29,7 @@ namespace Basketball.Data
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
+            // this.Configuration.LazyLoadingEnabled = false;
         }
         
         public static ApplicationDbContext Create()
@@ -37,6 +41,7 @@ namespace Basketball.Data
         public DbSet<Game> Games { get; set; }
         public DbSet<Team> Teams { get; set; }
         public DbSet<Conference> Conferences { get; set; }
+        public DbSet<PlayerStats> PlayerStats { get; set; }
         
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

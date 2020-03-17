@@ -12,27 +12,32 @@ namespace Basketball.Services
     {
         public bool CreateGame(CreateNewGame model)
         {
-            var entity = new Game()
-            {
-                HomeTeamId = model.HomeTeamId,
-                AwayTeamId = model.AwayTeamId,
-                Date = model.Date,
-                HomeTeamScore = model.HomeTeamScore,
-                AwayTeamScore = model.AwayTeamScore,
-            };
-
             using (var ctx = new ApplicationDbContext())
             {
-                ctx.Games.Add(entity);
-                return ctx.SaveChanges() == 1;
-            }
+                var entity = new Game()
+                {
+                    HomeTeam = ctx.Teams.Single(t => t.Name == model.HomeTeam),
+                    AwayTeam = ctx.Teams.Single(t => t.Name == model.AwayTeam),
+                    Date = model.Date,
+                    // HomeTeamScore = model.HomeTeamScore,
+                    // AwayTeamScore = model.AwayTeamScore,
+
+                };
+                    ctx.Games.Add(entity);
+                    return ctx.SaveChanges() == 1;
+                
+            };
+
         }
         public GameDetails GetGameById(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
+                // var query = ctx.Games.Include(g => g.)
+                var query = ctx.Games.Include("PlayerStats").ToList();
                 var entity = ctx.Games
                    .Single(g => g.GameId == id);
+                var playerStats = entity.PlayerStats.ToList();
 
                 return new GameDetails()
                 {
@@ -44,7 +49,8 @@ namespace Basketball.Services
                     HomeTeamScore = entity.HomeTeamScore,
                     AwayTeamScore = entity.AwayTeamScore,
                     WinningTeamName = entity.Winner,
-                    LosingTeamName = entity.Loser
+                    LosingTeamName = entity.Loser,
+                    PlayerStats = playerStats.Select(p => new PlayerStatsList { Player = new PlayerDetails { FullName = p.Player.FullName, TeamName = p.Player.Team.Name,GamesPlayed = p.Player.GamesPlayed, AveragePoints = p.Player.AveragePoints, AverageRebounds = p.Player.AverageRebounds, AverageAssists = p.Player.AverageAssists }, Points = p.Points, Rebounds = p.Rebounds, Assists = p.Assists}).ToList()
                 };
 
             }
@@ -80,8 +86,8 @@ namespace Basketball.Services
                 entity.HomeTeamId = model.HomeTeamId;
                 entity.AwayTeamId = model.AwayTeamId;
                 entity.Date = model.Date;
-                entity.HomeTeamScore = model.HomeTeamScore;
-                entity.AwayTeamScore = model.AwayTeamScore;
+                // entity.HomeTeamScore = model.HomeTeamScore;
+                // entity.AwayTeamScore = model.AwayTeamScore;
 
                 return ctx.SaveChanges() == 1;
             }

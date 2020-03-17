@@ -14,7 +14,7 @@ namespace Basketball.Models
         [Required]
         public string Name { get; set; }
         [Required]
-        public int ConferenceId { get; set; }
+        public string Conference { get; set; }
 
     }
 }
