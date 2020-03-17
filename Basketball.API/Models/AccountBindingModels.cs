@@ -41,6 +41,7 @@ namespace Basketball.API.Models
         public string ConfirmPassword { get; set; }
     }
 
+    
     public class RegisterBindingModel
     {
         [Required]
