@@ -12,8 +12,8 @@ namespace Basketball.API.Controllers
     public class FavoritesController : Controller
     {
         // GET: TeamList
-        [System.Web.Mvc.Route("/Favorites")]
-        public ActionResult Index()
+        //[System.Web.Mvc.Route("/Favorites")]
+        public ActionResult MyFavorites()
         {
             IEnumerable<TeamList> teams = null;
 
