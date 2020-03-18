@@ -21,7 +21,7 @@ namespace Basketball.API.Controllers
             {
                 client.BaseAddress = new Uri("https://localhost:44337/api/");
                 //HTTP GET
-                var responseTask = client.GetAsync("Team");
+                var responseTask = client.GetAsync("");
                 responseTask.Wait();
 
                 var result = responseTask.Result;
