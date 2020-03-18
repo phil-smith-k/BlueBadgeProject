@@ -14,6 +14,7 @@ namespace Basketball.API.Controllers
     
     public class TeamController : ApiController
     {
+        [HttpGet]
         public IHttpActionResult Get()
         {
             TeamService teamService = CreateTeamService();
@@ -21,6 +22,8 @@ namespace Basketball.API.Controllers
             return Ok(teams);
         }
 
+        [HttpGet]
+        [Route("api/team/{id}")]
         public IHttpActionResult Get(int id)
         {
             TeamService teamService = CreateTeamService();
@@ -28,6 +31,7 @@ namespace Basketball.API.Controllers
             return Ok(team);
         }
 
+        [HttpPost]
         public IHttpActionResult Post(CreateNewTeam team)
         {
             if (!ModelState.IsValid)
@@ -68,6 +72,7 @@ namespace Basketball.API.Controllers
 
             return Ok();
         }
+        [HttpPut]
         public IHttpActionResult Put(TeamEdit team)
         {
             if (!ModelState.IsValid)
@@ -87,7 +92,7 @@ namespace Basketball.API.Controllers
             return teamService;
         }
 
-
+        [HttpDelete]
         public IHttpActionResult Delete(int id)
         {
             var service = CreateTeamService();
