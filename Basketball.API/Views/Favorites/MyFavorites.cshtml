@@ -17,10 +17,10 @@
         <h1 class="display-4">Git "R" Dun League!</h1>
         <hr class="my-4">
         <p>2020 SEASON</p>
-        <b class="btn btn-primary btn-lg" href="#" role="button">@Html.ActionLink("ALL TEAMS", "Index", null, new { @style = "color: white;" })</b>
-        <b class="btn btn-primary btn-lg" href="#" role="button">@Html.ActionLink("WEST CONFERENCE", "EastConference", new { id = 8 }, new { @style = "color: white;" })</b>
-        <b class="btn btn-primary btn-lg" href="#" role="button">@Html.ActionLink("EAST CONFERENCE", "EastConference", new { id = 7 }, new { @style = "color: white;" })</b>
-        <b class="btn btn-primary btn-lg" href="#" role="button">@Html.ActionLink("MY FAVORITES", "Index","Favorites", null, new { @style = "color: white;" })</b>
+        <b class="btn btn-primary btn-lg" href="#" role="button">@Html.ActionLink("ALL TEAMS", "Index", "TeamList", null, new { @style = "color: white;" })</b>
+        <b class="btn btn-primary btn-lg" href="#" role="button">@Html.ActionLink("WEST CONFERENCE", "EastConference", "TeamList", new { id = 8 }, new { @style = "color: white;" })</b>
+        <b class="btn btn-primary btn-lg" href="#" role="button">@Html.ActionLink("EAST CONFERENCE", "EastConference", "TeamList", new { id = 7 }, new { @style = "color: white;" })</b>
+        <b class="btn btn-primary btn-lg" href="#" role="button">@Html.ActionLink("MY FAVORITES", "MyFavorites", "Favorites", null, new { @style = "color: white;" })</b>
     </div>
     <h2>Favorite Teams</h2>
     <table class="table">
