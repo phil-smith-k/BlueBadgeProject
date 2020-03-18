@@ -1,6 +1,7 @@
 ﻿using Basketball.Data;
 using Basketball.Models;
 using Basketball.Services;
+using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,8 +11,10 @@ using System.Web.Http;
 
 namespace Basketball.API.Controllers
 {
+    
     public class TeamController : ApiController
     {
+        [HttpGet]
         public IHttpActionResult Get()
         {
             TeamService teamService = CreateTeamService();
@@ -19,6 +22,8 @@ namespace Basketball.API.Controllers
             return Ok(teams);
         }
 
+        [HttpGet]
+        [Route("api/team/{id}")]
         public IHttpActionResult Get(int id)
         {
             TeamService teamService = CreateTeamService();
@@ -26,6 +31,7 @@ namespace Basketball.API.Controllers
             return Ok(team);
         }
 
+        [HttpPost]
         public IHttpActionResult Post(CreateNewTeam team)
         {
             if (!ModelState.IsValid)
@@ -38,7 +44,35 @@ namespace Basketball.API.Controllers
 
             return Ok();
         }
+        [Authorize]
+        [HttpPost]
+        [Route("api/team/{id}")]
+        public IHttpActionResult PostFavorite(int id)
+        {
+            var user = Guid.Parse(this.User.Identity.GetUserId());
 
+            var service = CreateTeamService();
+
+            if (!service.AddToFavoriteList(id, user))
+                return InternalServerError();
+
+            return Ok();
+        }
+        [Authorize]
+        [HttpDelete]
+        [Route("api/team/{id}")]
+        public IHttpActionResult RemoveFavorite(int id)
+        {
+            var user = Guid.Parse(this.User.Identity.GetUserId());
+
+            var service = CreateTeamService();
+
+            if (!service.RemoveFromFavoriteList(id, user))
+                return InternalServerError();
+
+            return Ok();
+        }
+        [HttpPut]
         public IHttpActionResult Put(TeamEdit team)
         {
             if (!ModelState.IsValid)
@@ -58,7 +92,7 @@ namespace Basketball.API.Controllers
             return teamService;
         }
 
-
+        [HttpDelete]
         public IHttpActionResult Delete(int id)
         {
             var service = CreateTeamService();

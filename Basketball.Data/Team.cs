@@ -22,6 +22,7 @@ namespace Basketball.Data
 
         public virtual ICollection<Player> Roster { get; set; }
         public virtual ICollection<PlayerStats> PlayerStats { get; set; }
+        public virtual ICollection<ApplicationUser> UsersWhoFavorited { get; set; }
 
         [InverseProperty("HomeTeam")]
         public virtual ICollection<Game> HomeGameLog { get; set; }

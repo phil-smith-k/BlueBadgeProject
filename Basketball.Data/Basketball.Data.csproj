@@ -195,11 +195,28 @@
     <Compile Include="Migrations\202003121537520_stats.Designer.cs">
       <DependentUpon>202003121537520_stats.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202003121814021_Favorite.cs" />
+    <Compile Include="Migrations\202003121814021_Favorite.Designer.cs">
+      <DependentUpon>202003121814021_Favorite.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003122002369_favorites.cs" />
+    <Compile Include="Migrations\202003122002369_favorites.Designer.cs">
+      <DependentUpon>202003122002369_favorites.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003122005255_PlayerFavorite.cs" />
+    <Compile Include="Migrations\202003122005255_PlayerFavorite.Designer.cs">
+      <DependentUpon>202003122005255_PlayerFavorite.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003171411579_lmao1.cs" />
+    <Compile Include="Migrations\202003171411579_lmao1.Designer.cs">
+      <DependentUpon>202003171411579_lmao1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="PlayerStats.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Team.cs" />
+    <Compile Include="Token.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -292,6 +309,18 @@
     <EmbeddedResource Include="Migrations\202003121537520_stats.resx">
       <DependentUpon>202003121537520_stats.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003121814021_Favorite.resx">
+      <DependentUpon>202003121814021_Favorite.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003122002369_favorites.resx">
+      <DependentUpon>202003122002369_favorites.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003122005255_PlayerFavorite.resx">
+      <DependentUpon>202003122005255_PlayerFavorite.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003171411579_lmao1.resx">
+      <DependentUpon>202003171411579_lmao1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="obj\Debug\Basketball.Data.Migrations.addedgametable.resources" />
     <EmbeddedResource Include="obj\Debug\Basketball.Data.Migrations.addedteamstoconference.resources" />
     <EmbeddedResource Include="obj\Debug\Basketball.Data.Migrations.allgames.resources" />
@@ -345,6 +374,7 @@
     <Content Include="bin\Debug\System.Web.Http.Owin.dll" />
     <Content Include="bin\Debug\System.Web.Http.Owin.xml" />
     <Content Include="bin\Debug\System.Web.Http.xml" />
+    <Content Include="NewFile1.txt" />
     <Content Include="obj\Debug\Basketball.Data.csproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\Basketball.Data.dll" />
     <Content Include="obj\Debug\Basketball.Data.pdb" />

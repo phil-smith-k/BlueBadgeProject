@@ -12,6 +12,15 @@ namespace Basketball.API.Models
         [Display(Name = "External access token")]
         public string ExternalAccessToken { get; set; }
     }
+    public class ClientLoginBindingModel
+    {
+        [Required]
+        public string UserName { get; set; }
+        [Required]
+        [DataType(DataType.Password)]
+        public string Password { get; set; }
+        public bool MaintainSession { get; set; }
+    }
 
     public class ChangePasswordBindingModel
     {
@@ -32,6 +41,7 @@ namespace Basketball.API.Models
         public string ConfirmPassword { get; set; }
     }
 
+    
     public class RegisterBindingModel
     {
         [Required]

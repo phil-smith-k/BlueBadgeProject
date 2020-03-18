@@ -14,5 +14,6 @@ namespace Basketball.Models
         public string Conference { get; set; }
         public string Record { get; set; }
         public int ConferenceId { get; set; }
+        public bool Favorite { get; set; }
     }
 }

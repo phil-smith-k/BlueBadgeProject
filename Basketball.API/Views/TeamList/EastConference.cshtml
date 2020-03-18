@@ -18,13 +18,17 @@
         <hr class="my-4">
         <p>2020 SEASON</p>
         <b class="btn btn-primary btn-lg" href="#" role="button">@Html.ActionLink("ALL TEAMS", "Index", null, new { @style = "color: white;" })</b>
-        <b class="btn btn-primary btn-lg" href="#" role="button">@Html.ActionLink("WEST CONFERENCE", "EastConference", new { id = 8}, new { @style = "color: white;" })</b>
-        <b class="btn btn-primary btn-lg" href="#" role="button">@Html.ActionLink("EAST CONFERENCE", "EastConference", new { id = 7}, new { @style = "color: white;" })</b>
+        <b class="btn btn-primary btn-lg" href="#" role="button">@Html.ActionLink("WEST CONFERENCE", "EastConference", new { id = 8 }, new { @style = "color: white;" })</b>
+        <b class="btn btn-primary btn-lg" href="#" role="button">@Html.ActionLink("EAST CONFERENCE", "EastConference", new { id = 7 }, new { @style = "color: white;" })</b>
+        <b class="btn btn-primary btn-lg" href="#" role="button">@Html.ActionLink("MY FAVORITES", "MyFavorites", "Favorites", null, new { @style = "color: white;" })</b>
 
     </div>
     <h2>Teams</h2>
     <table class="table">
         <tr>
+            <th>
+                Favorite
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.Teams.First().Location)
             </th>
@@ -39,6 +43,9 @@
         @foreach (var item in Model.Teams)
         {
             <tr>
+                <td>
+                    @Html.CheckBoxFor(modelItem => item.Favorite)
+                </td>
                 <td>
                     @Html.ActionLink(Html.DisplayFor(modelItem => item.Location).ToHtmlString(), "TeamDetails", "TeamList", new { id = item.TeamId }, null)
                 </td>

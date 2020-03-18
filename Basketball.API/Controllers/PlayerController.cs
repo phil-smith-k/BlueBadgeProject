@@ -1,5 +1,6 @@
 ﻿using Basketball.Models;
 using Basketball.Services;
+using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -40,6 +41,31 @@ namespace Basketball.API.Controllers
             var player = playerService.GetPlayerById(id);
             return Ok(player);
         }
+        [Authorize]
+        [HttpPost]
+        [Route("api/player/{id}")]
+        public IHttpActionResult PostFavorite(int id)
+        {
+            var user = Guid.Parse(this.User.Identity.GetUserId());
+
+            var service = CreatePlayerService();
+
+            if (!service.AddToFavoriteList(id, user))
+                return InternalServerError();
+
+            return Ok();
+        }
+        public IHttpActionResult RemoveFavorite(int id)
+        {
+            var user = Guid.Parse(this.User.Identity.GetUserId());
+
+            var service = CreatePlayerService();
+
+            if (!service.RemoveFromFavoriteList(id, user))
+                return InternalServerError();
+
+            return Ok();
+        }
         public IHttpActionResult Put(PlayerEdit player)
         {
             if (!ModelState.IsValid)
@@ -52,6 +78,8 @@ namespace Basketball.API.Controllers
 
             return Ok();
         }
+        [HttpDelete]
+        [Route("api/player/{id}")]
         public IHttpActionResult Delete(int id)
         {
             var service = CreatePlayerService();
